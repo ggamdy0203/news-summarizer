@@ -41,8 +41,23 @@
 
   #apiKeyStatus { font-size: 12px; color: #2a8f4d; margin-bottom: 6px; min-height: 16px; }
   #resultArea { display: none; margin-top: 14px; }
-  #resultArea .summaryText { font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
   #resultArea .resultMeta { font-size: 12px; color: #999; margin-bottom: 8px; word-break: break-all; }
+
+  .summaryList {
+    list-style: none; margin: 0; padding: 0;
+  }
+  .summaryList li {
+    position: relative; padding: 6px 0 6px 20px;
+    font-size: 14.5px; line-height: 1.55; color: #333;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .summaryList li:last-child { border-bottom: none; }
+  .summaryList li::before {
+    content: "•"; position: absolute; left: 4px; color: #2a4d8f; font-weight: 700;
+  }
+  #resultSummary p, .histSummary p {
+    font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin: 0;
+  }
   #errorArea { color: #c0392b; font-size: 13px; margin-top: 10px; display: none; }
 
   .historyItem {
@@ -168,9 +183,14 @@
       return text.slice(0, 16000);
     }
 
+    const SUMMARY_FORMAT_INSTRUCTION =
+      `요약은 3~4개의 핵심 포인트로 나눠서, 포인트마다 줄을 바꾸고 맨 앞에 "• "를 붙여줘. ` +
+      `각 포인트는 한 문장으로 짧고 명확하게 써줘.`;
+
     async function summarizeUrl(url, apiKey) {
-      const directPrompt = `다음 링크에 접속해서 글 내용을 읽고 핵심만 3~4줄로 한국어로 요약해줘. ` +
-        `머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n링크: ${url}`;
+      const directPrompt = `다음 링크에 접속해서 글 내용을 읽고 핵심만 한국어로 요약해줘. ` +
+        `${SUMMARY_FORMAT_INSTRUCTION} ` +
+        `머릿말이나 따옴표 없이 바로 첫 포인트부터 시작해.\n\n링크: ${url}`;
 
       const directData = await callGemini(
         apiKey,
@@ -186,7 +206,7 @@
       // Gemini가 직접 못 읽는 사이트(예: 네이버 뉴스)는 리더 서비스로 본문을 가져와 텍스트로 요약 요청
       const articleText = await fetchArticleTextViaReader(url);
       const fallbackPrompt = `다음은 어떤 기사 페이지에서 가져온 텍스트다. 광고/메뉴/구독 안내 같은 ` +
-        `본문과 무관한 내용은 무시하고, 핵심만 3~4줄로 한국어로 요약해줘. ` +
+        `본문과 무관한 내용은 무시하고, 핵심만 한국어로 요약해줘. ${SUMMARY_FORMAT_INSTRUCTION} ` +
         `머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n${articleText}`;
       const fallbackData = await callGemini(apiKey, [{ parts: [{ text: fallbackPrompt }] }]);
       const fallbackResult = extractCandidateText(fallbackData);
@@ -194,9 +214,18 @@
       return fallbackResult.text || "요약 내용을 생성하지 못했습니다.";
     }
 
+    function renderSummaryHtml(summary) {
+      const lines = summary.split("\n").map(l => l.trim()).filter(Boolean);
+      const points = lines.map(l => l.replace(/^[•\-\*]\s*/, ""));
+      if (points.length <= 1) {
+        return `<p>${escapeHtml(summary)}</p>`;
+      }
+      return `<ul class="summaryList">${points.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul>`;
+    }
+
     function showResult(url, summary) {
       document.getElementById("resultMeta").textContent = url;
-      document.getElementById("resultSummary").textContent = summary;
+      document.getElementById("resultSummary").innerHTML = renderSummaryHtml(summary);
       document.getElementById("resultArea").style.display = "block";
     }
 
@@ -226,7 +255,7 @@
         <div class="historyItem" data-id="${escapeHtml(item.id)}">
           <div class="histTitle" data-action="open">${escapeHtml(item.url)}</div>
           <div class="histMeta">${new Date(item.createdAt).toLocaleString("ko-KR")}</div>
-          <div class="histSummary">${escapeHtml(item.summary)}</div>
+          <div class="histSummary">${renderSummaryHtml(item.summary)}</div>
           <div class="histActions">
             <button class="secondary" data-action="visit">원문 보러가기 ↗</button>
             <button class="danger" data-action="delete">삭제</button>
