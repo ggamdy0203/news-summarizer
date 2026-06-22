@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기사 링크 요약기</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Malgun Gothic", sans-serif;
+    max-width: 720px; margin: 0 auto; padding: 16px;
+    background: #f5f6f8; color: #222;
+  }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .sub { color: #888; font-size: 13px; margin-bottom: 20px; }
+
+  .card {
+    background: #fff; border-radius: 10px; padding: 16px;
+    margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .card h2 { font-size: 15px; margin: 0 0 10px 0; }
+
+  label { font-size: 13px; color: #555; display: block; margin-bottom: 4px; }
+  input[type="text"], input[type="password"] {
+    width: 100%; padding: 9px 10px; border: 1px solid #ddd; border-radius: 6px;
+    font-size: 14px; margin-bottom: 10px;
+  }
+  .row { display: flex; gap: 8px; }
+  .row input { flex: 1; }
+
+  button {
+    padding: 9px 16px; border-radius: 6px; border: none;
+    background: #2a4d8f; color: #fff; font-size: 14px; cursor: pointer;
+  }
+  button:hover { background: #1f3a6e; }
+  button:disabled { background: #aaa; cursor: not-allowed; }
+  button.secondary { background: #eee; color: #444; }
+  button.secondary:hover { background: #ddd; }
+  button.danger { background: #c0392b; }
+  button.danger:hover { background: #992d22; }
+
+  #apiKeyStatus { font-size: 12px; color: #2a8f4d; margin-bottom: 6px; min-height: 16px; }
+  #resultArea { display: none; margin-top: 14px; }
+  #resultArea .summaryText { font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+  #resultArea .resultMeta { font-size: 12px; color: #999; margin-bottom: 8px; word-break: break-all; }
+  #errorArea { color: #c0392b; font-size: 13px; margin-top: 10px; display: none; }
+
+  .historyItem {
+    border-top: 1px solid #f0f0f0; padding: 10px 0;
+  }
+  .historyItem:first-child { border-top: none; }
+  .historyItem .histTitle { font-weight: 600; font-size: 14px; cursor: pointer; }
+  .historyItem .histTitle:hover { text-decoration: underline; }
+  .historyItem .histMeta { font-size: 12px; color: #999; margin-top: 2px; }
+  .historyItem .histSummary { font-size: 13px; color: #444; margin-top: 6px; white-space: pre-wrap; }
+  .historyItem .histActions { margin-top: 6px; }
+  .historyItem .histActions button { font-size: 12px; padding: 4px 10px; }
+  #historyEmpty { color: #999; font-size: 13px; }
+</style>
+</head>
+<body>
+  <h1>기사 링크 요약기</h1>
+  <div class="sub">기사 링크를 넣으면 Gemini AI가 직접 읽고 핵심만 3~4줄로 요약해줍니다.</div>
+
+  <div class="card">
+    <h2>⚙️ Gemini API 설정</h2>
+    <label for="apiKeyInput">API 키</label>
+    <input type="password" id="apiKeyInput" placeholder="AIzaSy... 또는 AQ. 로 시작하는 키">
+    <div id="apiKeyStatus"></div>
+    <div style="font-size:12px;color:#999;">발급: <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> (무료)</div>
+  </div>
+
+  <div class="card">
+    <h2>🔗 기사 링크 요약</h2>
+    <label for="urlInput">기사 URL</label>
+    <div class="row">
+      <input type="text" id="urlInput" placeholder="https://...">
+      <button id="summarizeBtn">요약하기</button>
+    </div>
+    <div id="errorArea"></div>
+    <div id="resultArea">
+      <div class="resultMeta" id="resultMeta"></div>
+      <div class="summaryText" id="resultSummary"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📋 요약 기록</h2>
+    <div style="text-align:right; margin-bottom:8px;">
+      <button class="secondary" id="clearHistoryBtn">전체 삭제</button>
+    </div>
+    <div id="historyEmpty">아직 요약한 기사가 없습니다.</div>
+    <div id="historyList"></div>
+  </div>
+
+  <script>
+    const STORAGE_KEY_API = "news_summarizer_api_key";
+    const STORAGE_KEY_HISTORY = "news_summarizer_history";
+    const MODEL = "gemini-2.5-flash";
+
+    function loadApiKey() {
+      return localStorage.getItem(STORAGE_KEY_API) || "";
+    }
+
+    function saveApiKey(key) {
+      localStorage.setItem(STORAGE_KEY_API, key);
+    }
+
+    function loadHistory() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY_HISTORY) || "[]");
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveHistory(history) {
+      localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    async function summarizeUrl(url, apiKey) {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${encodeURIComponent(apiKey)}`;
+      const prompt = `다음 링크에 접속해서 글 내용을 읽고 핵심만 3~4줄로 한국어로 요약해줘. ` +
+        `머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n링크: ${url}`;
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          tools: [{ url_context: {} }],
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        const message = data.error && data.error.message ? data.error.message : `HTTP ${response.status}`;
+        throw new Error(message);
+      }
+
+      const candidate = data.candidates && data.candidates[0];
+      if (!candidate) {
+        throw new Error("요약 결과를 받지 못했습니다.");
+      }
+
+      const parts = (candidate.content && candidate.content.parts) || [];
+      const text = parts.map(p => p.text || "").join("").trim();
+
+      const urlMeta = candidate.urlContextMetadata && candidate.urlContextMetadata.urlMetadata;
+      const status = urlMeta && urlMeta[0] && urlMeta[0].urlRetrievalStatus;
+      if (status && status !== "URL_RETRIEVAL_STATUS_SUCCESS") {
+        throw new Error(`이 링크를 읽을 수 없었습니다 (${status}). 다른 링크로 시도해주세요.`);
+      }
+
+      return text || "요약 내용을 생성하지 못했습니다.";
+    }
+
+    function showResult(url, summary) {
+      document.getElementById("resultMeta").textContent = url;
+      document.getElementById("resultSummary").textContent = summary;
+      document.getElementById("resultArea").style.display = "block";
+    }
+
+    function showError(message) {
+      const errorEl = document.getElementById("errorArea");
+      errorEl.textContent = message;
+      errorEl.style.display = "block";
+    }
+
+    function clearError() {
+      document.getElementById("errorArea").style.display = "none";
+    }
+
+    function renderHistory() {
+      const history = loadHistory();
+      const listEl = document.getElementById("historyList");
+      const emptyEl = document.getElementById("historyEmpty");
+
+      if (history.length === 0) {
+        emptyEl.style.display = "block";
+        listEl.innerHTML = "";
+        return;
+      }
+      emptyEl.style.display = "none";
+
+      listEl.innerHTML = history.map(item => `
+        <div class="historyItem" data-id="${escapeHtml(item.id)}">
+          <div class="histTitle" data-action="open">${escapeHtml(item.url)}</div>
+          <div class="histMeta">${new Date(item.createdAt).toLocaleString("ko-KR")}</div>
+          <div class="histSummary">${escapeHtml(item.summary)}</div>
+          <div class="histActions">
+            <button class="secondary" data-action="visit">원문 보러가기 ↗</button>
+            <button class="danger" data-action="delete">삭제</button>
+          </div>
+        </div>
+      `).join("");
+
+      listEl.querySelectorAll(".historyItem").forEach(el => {
+        const id = el.dataset.id;
+        const item = history.find(h => h.id === id);
+        el.querySelector('[data-action="visit"]').addEventListener("click", () => {
+          window.open(item.url, "_blank", "noopener");
+        });
+        el.querySelector('[data-action="delete"]').addEventListener("click", () => {
+          const updated = loadHistory().filter(h => h.id !== id);
+          saveHistory(updated);
+          renderHistory();
+        });
+      });
+    }
+
+    function addToHistory(url, summary) {
+      const history = loadHistory();
+      history.unshift({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        url,
+        summary,
+        createdAt: new Date().toISOString(),
+      });
+      saveHistory(history);
+      renderHistory();
+    }
+
+    document.getElementById("apiKeyInput").addEventListener("change", (e) => {
+      saveApiKey(e.target.value.trim());
+      document.getElementById("apiKeyStatus").textContent = e.target.value.trim() ? "✓ 저장됨" : "";
+    });
+
+    document.getElementById("summarizeBtn").addEventListener("click", async () => {
+      const apiKey = loadApiKey();
+      const url = document.getElementById("urlInput").value.trim();
+      clearError();
+      document.getElementById("resultArea").style.display = "none";
+
+      if (!apiKey) {
+        showError("먼저 Gemini API 키를 입력해주세요.");
+        return;
+      }
+      if (!url) {
+        showError("기사 URL을 입력해주세요.");
+        return;
+      }
+
+      const btn = document.getElementById("summarizeBtn");
+      btn.disabled = true;
+      btn.textContent = "요약 중...";
+      try {
+        const summary = await summarizeUrl(url, apiKey);
+        showResult(url, summary);
+        addToHistory(url, summary);
+      } catch (err) {
+        showError(err.message || "요약 중 오류가 발생했습니다.");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "요약하기";
+      }
+    });
+
+    document.getElementById("clearHistoryBtn").addEventListener("click", () => {
+      if (confirm("요약 기록을 전체 삭제할까요?")) {
+        saveHistory([]);
+        renderHistory();
+      }
+    });
+
+    (function init() {
+      const savedKey = loadApiKey();
+      if (savedKey) {
+        document.getElementById("apiKeyInput").value = savedKey;
+        document.getElementById("apiKeyStatus").textContent = "✓ 저장됨";
+      }
+      renderHistory();
+    })();
+  </script>
+</body>
+</html>
