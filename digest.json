@@ -1,3 +1,45 @@
 {
-  "entries": []
+  "entries": [
+    {
+      "label": "오후 다이제스트 · 2026-06-23",
+      "createdAt": "2026-06-23T06:16:00.000Z",
+      "sections": [
+        {
+          "source": "한국경제",
+          "items": [
+            {
+              "title": "\"전셋집 구하기 더 어려워졌다\"…서울 전세물건 31% 줄었다",
+              "url": "https://www.hankyung.com/article/2026062328476",
+              "summary": "서울 아파트 전월세 매물이 1년 새 크게 줄면서 전세 구하기가 어려워지고 있다는 분석이다."
+            },
+            {
+              "title": "\"집값 낮은 동네일수록 대출 더 필요\"…서울 집 살 때 갈린 현금력",
+              "url": "https://www.hankyung.com/article/2026062319266",
+              "summary": "서울 내에서도 집값이 낮은 지역일수록 매수 시 대출 의존도가 더 높다는 분석이 나왔다."
+            }
+          ]
+        },
+        {
+          "source": "네이버 뉴스",
+          "items": [
+            {
+              "title": "주식·부동산 팔지도 않았는데 세금을?…'미실현 이익 과세론' 주장",
+              "url": "https://n.news.naver.com/mnews/article/082/0001386659?sid=101",
+              "summary": "자산을 처분하지 않아도 가치 상승분에 과세하는 미실현 이익 과세 논의가 제기되고 있다."
+            },
+            {
+              "title": "한성숙, 다주택 처분···최종 1주택 보유",
+              "url": "https://www.thereport.co.kr/news/articleView.html?idxno=89012",
+              "summary": "고위 공직자 한성숙 후보자가 보유 주택을 처분해 1주택자가 됐다."
+            },
+            {
+              "title": "\"목동 3.0 시대 열린다\"···30조 재건축에 새 랜드마크 공급",
+              "url": "https://www.smartbizn.com/news/articleView.html?idxno=146837",
+              "summary": "목동 일대 약 30조원 규모 재건축이 추진되며 새로운 주거 랜드마크가 들어설 예정이다."
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
