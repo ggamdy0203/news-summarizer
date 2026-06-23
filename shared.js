@@ -1,6 +1,7 @@
 // index.html / digest.html 공용 로직 (Gemini 호출, API 키 저장, 요약 렌더링)
 
 const STORAGE_KEY_API = "news_summarizer_api_key";
+const STORAGE_KEY_HISTORY = "news_summarizer_history";
 const MODEL = "gemini-2.5-flash";
 
 const SUMMARY_FORMAT_INSTRUCTION =
@@ -90,6 +91,34 @@ async function summarizeUrl(url, apiKey) {
   const fallbackResult = extractCandidateText(fallbackData);
 
   return fallbackResult.text || "요약 내용을 생성하지 못했습니다.";
+}
+
+function loadHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY_HISTORY) || "[]");
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveHistory(history) {
+  localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
+}
+
+function addToHistory(url, summary, title) {
+  const history = loadHistory();
+  if (history.some(h => h.url === url)) {
+    return false; // 이미 저장된 기사
+  }
+  history.unshift({
+    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    url,
+    title: title || "",
+    summary,
+    createdAt: new Date().toISOString(),
+  });
+  saveHistory(history);
+  return true;
 }
 
 function renderSummaryHtml(summary) {

@@ -124,20 +124,6 @@
 
   <script src="shared.js"></script>
   <script>
-    const STORAGE_KEY_HISTORY = "news_summarizer_history";
-
-    function loadHistory() {
-      try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY_HISTORY) || "[]");
-      } catch (e) {
-        return [];
-      }
-    }
-
-    function saveHistory(history) {
-      localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
-    }
-
     function showResult(url, summary) {
       document.getElementById("resultMeta").textContent = url;
       document.getElementById("resultSummary").innerHTML = renderSummaryHtml(summary);
@@ -168,7 +154,7 @@
 
       listEl.innerHTML = history.map(item => `
         <div class="historyItem" data-id="${escapeHtml(item.id)}">
-          <div class="histTitle" data-action="open">${escapeHtml(item.url)}</div>
+          <div class="histTitle" data-action="open">${escapeHtml(item.title || item.url)}</div>
           <div class="histMeta">${new Date(item.createdAt).toLocaleString("ko-KR")}</div>
           <div class="histSummary">${renderSummaryHtml(item.summary)}</div>
           <div class="histActions">
@@ -190,18 +176,6 @@
           renderHistory();
         });
       });
-    }
-
-    function addToHistory(url, summary) {
-      const history = loadHistory();
-      history.unshift({
-        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        url,
-        summary,
-        createdAt: new Date().toISOString(),
-      });
-      saveHistory(history);
-      renderHistory();
     }
 
     document.getElementById("apiKeyInput").addEventListener("input", (e) => {
@@ -231,6 +205,7 @@
         const summary = await summarizeUrl(url, apiKey);
         showResult(url, summary);
         addToHistory(url, summary);
+        renderHistory();
       } catch (err) {
         showError(err.message || "요약 중 오류가 발생했습니다.");
       } finally {

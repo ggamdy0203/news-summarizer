@@ -102,6 +102,7 @@
       <div id="modalSummary"></div>
       <div class="modalError" id="modalError"></div>
       <div class="modalActions">
+        <button class="secondary" id="modalSave">⭐ 저장하기</button>
         <button class="secondary" id="modalDeeper">🔄 다시 요약하기</button>
         <a id="modalVisit" href="#" target="_blank" rel="noopener"><button class="secondary" type="button">원문 보러가기 ↗</button></a>
       </div>
@@ -161,6 +162,14 @@
       deeperBtn.textContent = "🔄 다시 요약하기";
       deeperBtn.dataset.url = data.url;
 
+      const saveBtn = document.getElementById("modalSave");
+      saveBtn.dataset.url = data.url;
+      saveBtn.dataset.title = data.title;
+      saveBtn.dataset.summary = data.summary || "";
+      const alreadySaved = loadHistory().some(h => h.url === data.url);
+      saveBtn.disabled = alreadySaved;
+      saveBtn.textContent = alreadySaved ? "✓ 저장됨" : "⭐ 저장하기";
+
       document.getElementById("overlay").classList.add("open");
     }
 
@@ -171,6 +180,15 @@
     document.getElementById("modalClose").addEventListener("click", closeModal);
     document.getElementById("overlay").addEventListener("click", (e) => {
       if (e.target.id === "overlay") closeModal();
+    });
+
+    document.getElementById("modalSave").addEventListener("click", (e) => {
+      const btn = e.target;
+      const added = addToHistory(btn.dataset.url, btn.dataset.summary, btn.dataset.title);
+      if (added) {
+        btn.disabled = true;
+        btn.textContent = "✓ 저장됨";
+      }
     });
 
     document.getElementById("modalDeeper").addEventListener("click", async (e) => {
