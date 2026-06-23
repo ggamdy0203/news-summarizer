@@ -14,6 +14,14 @@
   h1 { font-size: 20px; margin-bottom: 4px; }
   .sub { color: #888; font-size: 13px; margin-bottom: 20px; }
 
+  .nav { display: flex; gap: 8px; margin-bottom: 16px; }
+  .nav a {
+    flex: 1; text-align: center; padding: 9px 0; border-radius: 6px;
+    font-size: 13px; text-decoration: none; color: #555; background: #fff;
+    border: 1px solid #ddd;
+  }
+  .nav a.active { background: #2a4d8f; color: #fff; border-color: #2a4d8f; }
+
   .card {
     background: #fff; border-radius: 10px; padding: 16px;
     margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
@@ -76,6 +84,11 @@
 <body>
   <h1>기사 링크 요약기</h1>
   <div class="sub">기사 링크를 넣으면 Gemini AI가 직접 읽고 핵심만 3~4줄로 요약해줍니다.</div>
+
+  <div class="nav">
+    <a href="index.html" class="active">🔗 링크 요약</a>
+    <a href="digest.html">📰 자동 다이제스트</a>
+  </div>
 
   <div class="card">
     <h2>⚙️ Gemini API 설정</h2>

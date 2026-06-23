@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부동산 뉴스 다이제스트</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Malgun Gothic", sans-serif;
+    max-width: 720px; margin: 0 auto; padding: 16px;
+    background: #f5f6f8; color: #222;
+  }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .sub { color: #888; font-size: 13px; margin-bottom: 16px; }
+
+  .nav { display: flex; gap: 8px; margin-bottom: 16px; }
+  .nav a {
+    flex: 1; text-align: center; padding: 9px 0; border-radius: 6px;
+    font-size: 13px; text-decoration: none; color: #555; background: #fff;
+    border: 1px solid #ddd;
+  }
+  .nav a.active { background: #2a4d8f; color: #fff; border-color: #2a4d8f; }
+
+  .card {
+    background: #fff; border-radius: 10px; padding: 16px;
+    margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .card h2 { font-size: 16px; margin: 0 0 4px 0; }
+  .card .digestTime { color: #999; font-size: 12px; margin-bottom: 12px; }
+
+  .sourceGroup { margin-bottom: 12px; }
+  .sourceGroup:last-child { margin-bottom: 0; }
+  .sourceGroup h3 {
+    font-size: 13px; color: #2a4d8f; margin: 0 0 6px 0;
+    text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .newsItem { padding: 7px 0; border-top: 1px solid #f2f2f2; }
+  .sourceGroup .newsItem:first-of-type { border-top: none; }
+  .newsItem a { color: #222; font-weight: 600; font-size: 14px; text-decoration: none; }
+  .newsItem a:hover { text-decoration: underline; }
+  .newsItem .itemSummary { font-size: 13px; color: #555; margin-top: 2px; line-height: 1.5; }
+
+  #empty { color: #999; font-size: 13px; text-align: center; padding: 30px 0; }
+</style>
+</head>
+<body>
+  <h1>부동산 뉴스 다이제스트</h1>
+  <div class="sub">매일 오전 9시 / 오후 3시, 한국경제·네이버 뉴스에서 자동으로 정리됩니다.</div>
+
+  <div class="nav">
+    <a href="index.html">🔗 링크 요약</a>
+    <a href="digest.html" class="active">📰 자동 다이제스트</a>
+  </div>
+
+  <div id="list"></div>
+  <div id="empty" style="display:none;">아직 생성된 다이제스트가 없습니다. 다음 정리 시간을 기다려주세요.</div>
+
+  <script>
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function renderDigest(entry) {
+      const sourceGroups = (entry.sections || []).map(section => {
+        const items = (section.items || []).map(item => `
+          <div class="newsItem">
+            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
+            <div class="itemSummary">${escapeHtml(item.summary || "")}</div>
+          </div>
+        `).join("");
+        return `
+          <div class="sourceGroup">
+            <h3>${escapeHtml(section.source)}</h3>
+            ${items || '<div class="itemSummary">새로 올라온 기사가 없습니다.</div>'}
+          </div>
+        `;
+      }).join("");
+
+      return `
+        <div class="card">
+          <h2>${escapeHtml(entry.label || "")}</h2>
+          <div class="digestTime">${new Date(entry.createdAt).toLocaleString("ko-KR")}</div>
+          ${sourceGroups}
+        </div>
+      `;
+    }
+
+    async function load() {
+      try {
+        const res = await fetch(`digest.json?t=${Date.now()}`);
+        if (!res.ok) throw new Error("not found");
+        const data = await res.json();
+        const entries = data.entries || [];
+
+        if (entries.length === 0) {
+          document.getElementById("empty").style.display = "block";
+          return;
+        }
+        document.getElementById("list").innerHTML = entries.map(renderDigest).join("");
+      } catch (e) {
+        document.getElementById("empty").style.display = "block";
+      }
+    }
+
+    load();
+  </script>
+</body>
+</html>
