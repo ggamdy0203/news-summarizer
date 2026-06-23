@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>부동산 뉴스 다이제스트</title>
+<title>투자 뉴스 다이제스트</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -21,6 +21,17 @@
     border: 1px solid #ddd;
   }
   .nav a.active { background: #2a4d8f; color: #fff; border-color: #2a4d8f; }
+
+  .catTabs {
+    display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto;
+    padding-bottom: 2px;
+  }
+  .catTabs button {
+    flex-shrink: 0; padding: 8px 14px; border-radius: 20px; border: 1px solid #ddd;
+    background: #fff; color: #555; font-size: 13px; font-weight: 500; cursor: pointer;
+  }
+  .catTabs button:hover { background: #f0f2f7; }
+  .catTabs button.active { background: #2a4d8f; color: #fff; border-color: #2a4d8f; }
 
   .card {
     background: #fff; border-radius: 10px; padding: 16px;
@@ -88,21 +99,51 @@
 </style>
 </head>
 <body>
-  <h1>부동산 뉴스 다이제스트</h1>
-  <div class="sub">매일 오전 9시 / 오후 3시, 한국경제·네이버 뉴스에서 자동으로 정리됩니다.</div>
+  <h1>투자 뉴스 다이제스트</h1>
+  <div class="sub">매일 오전 9시 / 오후 3시, 한국경제·네이버 뉴스에서 카테고리별로 자동 정리됩니다.</div>
 
   <div class="nav">
     <a href="index.html">🔗 링크 요약</a>
     <a href="digest.html" class="active">📰 자동 다이제스트</a>
   </div>
 
+  <div class="catTabs" id="catTabs"></div>
+
   <div id="list"></div>
   <div id="empty" style="display:none;">아직 생성된 다이제스트가 없습니다. 다음 정리 시간을 기다려주세요.</div>
 
   <script src="shared.js"></script>
   <script>
+    const CATEGORIES = ["부동산", "금융", "증권", "산업", "글로벌경제"];
+    let currentCategory = CATEGORIES[0];
+    let allEntries = [];
+
+    // 구버전 entry(entry.sections만 있고 categories가 없는 경우)는 "부동산" 카테고리로 간주
+    function getCategoriesOf(entry) {
+      if (entry.categories && entry.categories.length) return entry.categories;
+      if (entry.sections) return [{ category: "부동산", sections: entry.sections }];
+      return [];
+    }
+
+    function renderCatTabs() {
+      const tabsEl = document.getElementById("catTabs");
+      tabsEl.innerHTML = CATEGORIES.map(cat =>
+        `<button data-cat="${escapeHtml(cat)}" class="${cat === currentCategory ? "active" : ""}">${escapeHtml(cat)}</button>`
+      ).join("");
+      tabsEl.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentCategory = btn.dataset.cat;
+          renderCatTabs();
+          renderList();
+        });
+      });
+    }
+
     function renderDigest(entry, entryIndex) {
-      const sourceGroups = (entry.sections || []).map((section, sectionIndex) => {
+      const cat = getCategoriesOf(entry).find(c => c.category === currentCategory);
+      const sections = cat ? (cat.sections || []) : [];
+
+      const sourceGroups = sections.map((section, sectionIndex) => {
         const items = (section.items || []).map((item, itemIndex) => {
           const rowId = `row-${entryIndex}-${sectionIndex}-${itemIndex}`;
           return `
@@ -127,11 +168,13 @@
         `;
       }).join("");
 
+      if (!cat) return "";
+
       return `
         <div class="card">
           <h2>${escapeHtml(entry.label || "")}</h2>
           <div class="digestTime">${new Date(entry.createdAt).toLocaleString("ko-KR")}</div>
-          ${sourceGroups}
+          ${sourceGroups || '<div class="itemEmpty">이 카테고리에 올라온 기사가 없습니다.</div>'}
         </div>
       `;
     }
@@ -217,19 +260,26 @@
       });
     }
 
+    function renderList() {
+      const html = allEntries.map(renderDigest).filter(Boolean).join("");
+      document.getElementById("list").innerHTML = html;
+      document.getElementById("empty").style.display = html ? "none" : "block";
+      bindItemClicks();
+    }
+
     async function load() {
       try {
         const res = await fetch(`digest.json?t=${Date.now()}`);
         if (!res.ok) throw new Error("not found");
         const data = await res.json();
-        const entries = data.entries || [];
+        allEntries = data.entries || [];
 
-        if (entries.length === 0) {
+        if (allEntries.length === 0) {
           document.getElementById("empty").style.display = "block";
           return;
         }
-        document.getElementById("list").innerHTML = entries.map(renderDigest).join("");
-        bindItemClicks();
+        renderCatTabs();
+        renderList();
       } catch (e) {
         document.getElementById("empty").style.display = "block";
       }
