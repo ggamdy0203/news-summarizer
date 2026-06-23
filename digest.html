@@ -39,7 +39,7 @@
   .sourceGroup .newsItem:first-of-type { border-top: none; }
   .newsItem .itemTitle { color: #222; font-weight: 600; font-size: 14px; }
   .newsItem:hover .itemTitle { text-decoration: underline; }
-  .newsItem .itemSummary { font-size: 13px; color: #555; margin-top: 2px; line-height: 1.5; }
+  .newsItem .itemSummary { font-size: 13px; color: #555; margin-top: 2px; line-height: 1.5; white-space: pre-line; }
 
   #empty { color: #999; font-size: 13px; text-align: center; padding: 30px 0; }
 
@@ -102,7 +102,7 @@
       <div id="modalSummary"></div>
       <div class="modalError" id="modalError"></div>
       <div class="modalActions">
-        <button class="secondary" id="modalDeeper">🔎 AI로 더 자세히 요약</button>
+        <button class="secondary" id="modalDeeper">🔄 다시 요약하기</button>
         <a id="modalVisit" href="#" target="_blank" rel="noopener"><button class="secondary" type="button">원문 보러가기 ↗</button></a>
       </div>
     </div>
@@ -158,7 +158,7 @@
 
       const deeperBtn = document.getElementById("modalDeeper");
       deeperBtn.disabled = false;
-      deeperBtn.textContent = "🔎 AI로 더 자세히 요약";
+      deeperBtn.textContent = "🔄 다시 요약하기";
       deeperBtn.dataset.url = data.url;
 
       document.getElementById("overlay").classList.add("open");
@@ -180,7 +180,7 @@
       errorEl.style.display = "none";
 
       if (!apiKey) {
-        errorEl.textContent = "AI로 더 자세히 요약하려면 먼저 \"🔗 링크 요약\" 탭에서 Gemini API 키를 입력해주세요.";
+        errorEl.textContent = "다시 요약하려면 먼저 \"🔗 링크 요약\" 탭에서 Gemini API 키를 입력해주세요.";
         errorEl.style.display = "block";
         return;
       }
@@ -196,7 +196,7 @@
         errorEl.textContent = err.message || "요약 중 오류가 발생했습니다.";
         errorEl.style.display = "block";
         btn.disabled = false;
-        btn.textContent = "🔎 AI로 더 자세히 요약";
+        btn.textContent = "🔄 다시 요약하기";
       }
     });
 
