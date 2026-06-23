@@ -35,46 +35,40 @@
     font-size: 13px; color: #2a4d8f; margin: 0 0 2px 0;
     text-transform: uppercase; letter-spacing: 0.02em;
   }
+
+  .newsRow { border-top: 1px solid #f2f2f2; }
+  .sourceGroup .newsRow:first-of-type { border-top: none; }
+
   .newsItem {
-    padding: 11px 4px; border-top: 1px solid #f2f2f2; cursor: pointer;
+    padding: 11px 4px; cursor: pointer;
     display: flex; align-items: center; justify-content: space-between; gap: 10px;
     border-radius: 6px;
   }
-  .sourceGroup .newsItem:first-of-type { border-top: none; }
   .newsItem:hover { background: #f7f9fc; }
   .newsItem .itemTitle {
     color: #222; font-weight: 500; font-size: 14px; line-height: 1.4;
     overflow: hidden; text-overflow: ellipsis; display: -webkit-box;
     -webkit-line-clamp: 2; -webkit-box-orient: vertical;
   }
-  .newsItem:hover .itemTitle { color: #2a4d8f; }
-  .newsItem .itemArrow { color: #bbb; font-size: 14px; flex-shrink: 0; }
+  .newsItem.open .itemTitle, .newsItem:hover .itemTitle { color: #2a4d8f; }
+  .newsItem .itemArrow {
+    color: #bbb; font-size: 13px; flex-shrink: 0; transition: transform 0.15s ease;
+  }
   .newsItem:hover .itemArrow { color: #2a4d8f; }
+  .newsItem.open .itemArrow { transform: rotate(90deg); color: #2a4d8f; }
   .itemEmpty { font-size: 13px; color: #aaa; padding: 8px 4px; }
+
+  .itemPanel {
+    display: none; padding: 4px 4px 16px 4px; margin-top: -2px;
+  }
+  .itemPanel.open { display: block; }
+  .itemPanel .panelError { color: #c0392b; font-size: 13px; margin-top: 8px; display: none; }
+  .itemPanel .panelActions { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
 
   #empty { color: #999; font-size: 13px; text-align: center; padding: 30px 0; }
 
-  .overlay {
-    display: none;
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.45);
-    align-items: center; justify-content: center;
-    padding: 16px;
-  }
-  .overlay.open { display: flex; }
-  .modal {
-    background: #fff; border-radius: 10px; padding: 20px;
-    max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto;
-    position: relative;
-  }
-  .modal .close { position: absolute; top: 12px; right: 16px; cursor: pointer; font-size: 18px; color: #888; background: none; border: none; }
-  .modal h2 { font-size: 18px; margin: 0 28px 8px 0; }
-  .modal .modalSource { color: #2a4d8f; font-weight: 600; font-size: 12px; margin-bottom: 14px; }
-  .modal .modalError { color: #c0392b; font-size: 13px; margin-top: 8px; display: none; }
-  .modal .modalActions { margin-top: 18px; display: flex; gap: 8px; }
-
   button {
-    padding: 9px 16px; border-radius: 6px; border: none;
+    padding: 8px 14px; border-radius: 6px; border: none;
     background: #2a4d8f; color: #fff; font-size: 13px; cursor: pointer;
   }
   button:hover { background: #1f3a6e; }
@@ -85,12 +79,12 @@
   .summaryList { list-style: none; margin: 0; padding: 0; }
   .summaryList li {
     position: relative; padding: 6px 0 6px 20px;
-    font-size: 14.5px; line-height: 1.55; color: #333;
+    font-size: 14px; line-height: 1.55; color: #333;
     border-bottom: 1px solid #f3f3f3;
   }
   .summaryList li:last-child { border-bottom: none; }
   .summaryList li::before { content: "•"; position: absolute; left: 4px; color: #2a4d8f; font-weight: 700; }
-  #modalSummary p { font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin: 0; }
+  .itemPanel p { font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin: 0; color: #333; }
 </style>
 </head>
 <body>
@@ -105,35 +99,26 @@
   <div id="list"></div>
   <div id="empty" style="display:none;">아직 생성된 다이제스트가 없습니다. 다음 정리 시간을 기다려주세요.</div>
 
-  <div class="overlay" id="overlay">
-    <div class="modal">
-      <button class="close" id="modalClose">✕</button>
-      <h2 id="modalTitle"></h2>
-      <div class="modalSource" id="modalSource"></div>
-      <div id="modalSummary"></div>
-      <div class="modalError" id="modalError"></div>
-      <div class="modalActions">
-        <button class="secondary" id="modalSave">⭐ 저장하기</button>
-        <button class="secondary" id="modalDeeper">🔄 다시 요약하기</button>
-        <a id="modalVisit" href="#" target="_blank" rel="noopener"><button class="secondary" type="button">원문 보러가기 ↗</button></a>
-      </div>
-    </div>
-  </div>
-
   <script src="shared.js"></script>
   <script>
-    function renderDigest(entry) {
-      const sourceGroups = (entry.sections || []).map(section => {
-        const items = (section.items || []).map(item => `
-          <div class="newsItem"
-               data-title="${escapeHtml(item.title)}"
-               data-url="${escapeHtml(item.url)}"
-               data-summary="${escapeHtml(item.summary || "")}"
-               data-source="${escapeHtml(section.source)}">
-            <div class="itemTitle">${escapeHtml(item.title)}</div>
-            <div class="itemArrow">›</div>
+    function renderDigest(entry, entryIndex) {
+      const sourceGroups = (entry.sections || []).map((section, sectionIndex) => {
+        const items = (section.items || []).map((item, itemIndex) => {
+          const rowId = `row-${entryIndex}-${sectionIndex}-${itemIndex}`;
+          return `
+          <div class="newsRow">
+            <div class="newsItem" data-row-id="${rowId}"
+                 data-title="${escapeHtml(item.title)}"
+                 data-url="${escapeHtml(item.url)}"
+                 data-summary="${escapeHtml(item.summary || "")}"
+                 data-source="${escapeHtml(section.source)}">
+              <div class="itemTitle">${escapeHtml(item.title)}</div>
+              <div class="itemArrow">›</div>
+            </div>
+            <div class="itemPanel" id="panel-${rowId}"></div>
           </div>
-        `).join("");
+        `;
+        }).join("");
         return `
           <div class="sourceGroup">
             <h3>${escapeHtml(section.source)}</h3>
@@ -151,83 +136,86 @@
       `;
     }
 
+    function renderPanelContent(data) {
+      const alreadySaved = loadHistory().some(h => h.url === data.url);
+      return `
+        <div class="panelSummary">${renderSummaryHtml(data.summary || "(요약이 없습니다)")}</div>
+        <div class="panelError"></div>
+        <div class="panelActions">
+          <button class="secondary" data-action="save" ${alreadySaved ? "disabled" : ""}>${alreadySaved ? "✓ 저장됨" : "⭐ 저장하기"}</button>
+          <button class="secondary" data-action="deeper">🔄 다시 요약하기</button>
+          <a href="${escapeHtml(data.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">원문 보러가기 ↗</button></a>
+        </div>
+      `;
+    }
+
     function bindItemClicks() {
-      document.querySelectorAll(".newsItem[data-url]").forEach(el => {
-        el.addEventListener("click", () => openModal(el.dataset));
+      document.querySelectorAll(".newsItem[data-url]").forEach(itemEl => {
+        itemEl.addEventListener("click", () => toggleRow(itemEl));
       });
     }
 
-    function openModal(data) {
-      document.getElementById("modalTitle").textContent = data.title;
-      document.getElementById("modalSource").textContent = data.source;
-      document.getElementById("modalSummary").innerHTML = renderSummaryHtml(data.summary || "(요약이 없습니다)");
-      document.getElementById("modalVisit").href = data.url;
-      document.getElementById("modalVisit").dataset.url = data.url;
-
-      const errorEl = document.getElementById("modalError");
-      errorEl.style.display = "none";
-      errorEl.textContent = "";
-
-      const deeperBtn = document.getElementById("modalDeeper");
-      deeperBtn.disabled = false;
-      deeperBtn.textContent = "🔄 다시 요약하기";
-      deeperBtn.dataset.url = data.url;
-
-      const saveBtn = document.getElementById("modalSave");
-      saveBtn.dataset.url = data.url;
-      saveBtn.dataset.title = data.title;
-      saveBtn.dataset.summary = data.summary || "";
-      const alreadySaved = loadHistory().some(h => h.url === data.url);
-      saveBtn.disabled = alreadySaved;
-      saveBtn.textContent = alreadySaved ? "✓ 저장됨" : "⭐ 저장하기";
-
-      document.getElementById("overlay").classList.add("open");
+    function closeAllRows(except) {
+      document.querySelectorAll(".newsItem.open").forEach(el => {
+        if (el !== except) {
+          el.classList.remove("open");
+          document.getElementById(`panel-${el.dataset.rowId}`).classList.remove("open");
+        }
+      });
     }
 
-    function closeModal() {
-      document.getElementById("overlay").classList.remove("open");
-    }
-
-    document.getElementById("modalClose").addEventListener("click", closeModal);
-    document.getElementById("overlay").addEventListener("click", (e) => {
-      if (e.target.id === "overlay") closeModal();
-    });
-
-    document.getElementById("modalSave").addEventListener("click", (e) => {
-      const btn = e.target;
-      const added = addToHistory(btn.dataset.url, btn.dataset.summary, btn.dataset.title);
-      if (added) {
-        btn.disabled = true;
-        btn.textContent = "✓ 저장됨";
-      }
-    });
-
-    document.getElementById("modalDeeper").addEventListener("click", async (e) => {
-      const url = e.target.dataset.url;
-      const apiKey = loadApiKey();
-      const errorEl = document.getElementById("modalError");
-      errorEl.style.display = "none";
-
-      if (!apiKey) {
-        errorEl.textContent = "다시 요약하려면 먼저 \"🔗 링크 요약\" 탭에서 Gemini API 키를 입력해주세요.";
-        errorEl.style.display = "block";
+    function toggleRow(itemEl) {
+      const panel = document.getElementById(`panel-${itemEl.dataset.rowId}`);
+      const isOpen = itemEl.classList.contains("open");
+      closeAllRows(itemEl);
+      if (isOpen) {
+        itemEl.classList.remove("open");
+        panel.classList.remove("open");
         return;
       }
+      panel.innerHTML = renderPanelContent(itemEl.dataset);
+      panel.classList.add("open");
+      itemEl.classList.add("open");
+      bindPanelActions(panel, itemEl.dataset);
+      itemEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
 
-      const btn = e.target;
-      btn.disabled = true;
-      btn.textContent = "요약 중...";
-      try {
-        const deeper = await summarizeUrl(url, apiKey);
-        document.getElementById("modalSummary").innerHTML = renderSummaryHtml(deeper);
-        btn.textContent = "✓ 더 자세히 요약 완료";
-      } catch (err) {
-        errorEl.textContent = err.message || "요약 중 오류가 발생했습니다.";
-        errorEl.style.display = "block";
-        btn.disabled = false;
-        btn.textContent = "🔄 다시 요약하기";
-      }
-    });
+    function bindPanelActions(panel, data) {
+      const saveBtn = panel.querySelector('[data-action="save"]');
+      saveBtn.addEventListener("click", () => {
+        const added = addToHistory(data.url, data.summary, data.title);
+        if (added) {
+          saveBtn.disabled = true;
+          saveBtn.textContent = "✓ 저장됨";
+        }
+      });
+
+      const deeperBtn = panel.querySelector('[data-action="deeper"]');
+      deeperBtn.addEventListener("click", async () => {
+        const apiKey = loadApiKey();
+        const errorEl = panel.querySelector(".panelError");
+        errorEl.style.display = "none";
+
+        if (!apiKey) {
+          errorEl.textContent = "다시 요약하려면 먼저 \"🔗 링크 요약\" 탭에서 Gemini API 키를 입력해주세요.";
+          errorEl.style.display = "block";
+          return;
+        }
+
+        deeperBtn.disabled = true;
+        deeperBtn.textContent = "요약 중...";
+        try {
+          const deeper = await summarizeUrl(data.url, apiKey);
+          panel.querySelector(".panelSummary").innerHTML = renderSummaryHtml(deeper);
+          deeperBtn.textContent = "✓ 더 자세히 요약 완료";
+        } catch (err) {
+          errorEl.textContent = err.message || "요약 중 오류가 발생했습니다.";
+          errorEl.style.display = "block";
+          deeperBtn.disabled = false;
+          deeperBtn.textContent = "🔄 다시 요약하기";
+        }
+      });
+    }
 
     async function load() {
       try {
