@@ -35,13 +35,51 @@
     font-size: 13px; color: #2a4d8f; margin: 0 0 6px 0;
     text-transform: uppercase; letter-spacing: 0.02em;
   }
-  .newsItem { padding: 7px 0; border-top: 1px solid #f2f2f2; }
+  .newsItem { padding: 7px 0; border-top: 1px solid #f2f2f2; cursor: pointer; }
   .sourceGroup .newsItem:first-of-type { border-top: none; }
-  .newsItem a { color: #222; font-weight: 600; font-size: 14px; text-decoration: none; }
-  .newsItem a:hover { text-decoration: underline; }
+  .newsItem .itemTitle { color: #222; font-weight: 600; font-size: 14px; }
+  .newsItem:hover .itemTitle { text-decoration: underline; }
   .newsItem .itemSummary { font-size: 13px; color: #555; margin-top: 2px; line-height: 1.5; }
 
   #empty { color: #999; font-size: 13px; text-align: center; padding: 30px 0; }
+
+  .overlay {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45);
+    align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .overlay.open { display: flex; }
+  .modal {
+    background: #fff; border-radius: 10px; padding: 20px;
+    max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto;
+    position: relative;
+  }
+  .modal .close { position: absolute; top: 12px; right: 16px; cursor: pointer; font-size: 18px; color: #888; background: none; border: none; }
+  .modal h2 { font-size: 18px; margin: 0 28px 8px 0; }
+  .modal .modalSource { color: #2a4d8f; font-weight: 600; font-size: 12px; margin-bottom: 14px; }
+  .modal .modalError { color: #c0392b; font-size: 13px; margin-top: 8px; display: none; }
+  .modal .modalActions { margin-top: 18px; display: flex; gap: 8px; }
+
+  button {
+    padding: 9px 16px; border-radius: 6px; border: none;
+    background: #2a4d8f; color: #fff; font-size: 13px; cursor: pointer;
+  }
+  button:hover { background: #1f3a6e; }
+  button:disabled { background: #aaa; cursor: not-allowed; }
+  button.secondary { background: #eee; color: #444; }
+  button.secondary:hover { background: #ddd; }
+
+  .summaryList { list-style: none; margin: 0; padding: 0; }
+  .summaryList li {
+    position: relative; padding: 6px 0 6px 20px;
+    font-size: 14.5px; line-height: 1.55; color: #333;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .summaryList li:last-child { border-bottom: none; }
+  .summaryList li::before { content: "•"; position: absolute; left: 4px; color: #2a4d8f; font-weight: 700; }
+  #modalSummary p { font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin: 0; }
 </style>
 </head>
 <body>
@@ -56,18 +94,31 @@
   <div id="list"></div>
   <div id="empty" style="display:none;">아직 생성된 다이제스트가 없습니다. 다음 정리 시간을 기다려주세요.</div>
 
-  <script>
-    function escapeHtml(text) {
-      const div = document.createElement("div");
-      div.textContent = text;
-      return div.innerHTML;
-    }
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <button class="close" id="modalClose">✕</button>
+      <h2 id="modalTitle"></h2>
+      <div class="modalSource" id="modalSource"></div>
+      <div id="modalSummary"></div>
+      <div class="modalError" id="modalError"></div>
+      <div class="modalActions">
+        <button class="secondary" id="modalDeeper">🔎 AI로 더 자세히 요약</button>
+        <a id="modalVisit" href="#" target="_blank" rel="noopener"><button class="secondary" type="button">원문 보러가기 ↗</button></a>
+      </div>
+    </div>
+  </div>
 
+  <script src="shared.js"></script>
+  <script>
     function renderDigest(entry) {
       const sourceGroups = (entry.sections || []).map(section => {
         const items = (section.items || []).map(item => `
-          <div class="newsItem">
-            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${escapeHtml(item.title)}</a>
+          <div class="newsItem"
+               data-title="${escapeHtml(item.title)}"
+               data-url="${escapeHtml(item.url)}"
+               data-summary="${escapeHtml(item.summary || "")}"
+               data-source="${escapeHtml(section.source)}">
+            <div class="itemTitle">${escapeHtml(item.title)}</div>
             <div class="itemSummary">${escapeHtml(item.summary || "")}</div>
           </div>
         `).join("");
@@ -88,6 +139,67 @@
       `;
     }
 
+    function bindItemClicks() {
+      document.querySelectorAll(".newsItem[data-url]").forEach(el => {
+        el.addEventListener("click", () => openModal(el.dataset));
+      });
+    }
+
+    function openModal(data) {
+      document.getElementById("modalTitle").textContent = data.title;
+      document.getElementById("modalSource").textContent = data.source;
+      document.getElementById("modalSummary").innerHTML = renderSummaryHtml(data.summary || "(요약이 없습니다)");
+      document.getElementById("modalVisit").href = data.url;
+      document.getElementById("modalVisit").dataset.url = data.url;
+
+      const errorEl = document.getElementById("modalError");
+      errorEl.style.display = "none";
+      errorEl.textContent = "";
+
+      const deeperBtn = document.getElementById("modalDeeper");
+      deeperBtn.disabled = false;
+      deeperBtn.textContent = "🔎 AI로 더 자세히 요약";
+      deeperBtn.dataset.url = data.url;
+
+      document.getElementById("overlay").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("overlay").classList.remove("open");
+    }
+
+    document.getElementById("modalClose").addEventListener("click", closeModal);
+    document.getElementById("overlay").addEventListener("click", (e) => {
+      if (e.target.id === "overlay") closeModal();
+    });
+
+    document.getElementById("modalDeeper").addEventListener("click", async (e) => {
+      const url = e.target.dataset.url;
+      const apiKey = loadApiKey();
+      const errorEl = document.getElementById("modalError");
+      errorEl.style.display = "none";
+
+      if (!apiKey) {
+        errorEl.textContent = "AI로 더 자세히 요약하려면 먼저 \"🔗 링크 요약\" 탭에서 Gemini API 키를 입력해주세요.";
+        errorEl.style.display = "block";
+        return;
+      }
+
+      const btn = e.target;
+      btn.disabled = true;
+      btn.textContent = "요약 중...";
+      try {
+        const deeper = await summarizeUrl(url, apiKey);
+        document.getElementById("modalSummary").innerHTML = renderSummaryHtml(deeper);
+        btn.textContent = "✓ 더 자세히 요약 완료";
+      } catch (err) {
+        errorEl.textContent = err.message || "요약 중 오류가 발생했습니다.";
+        errorEl.style.display = "block";
+        btn.disabled = false;
+        btn.textContent = "🔎 AI로 더 자세히 요약";
+      }
+    });
+
     async function load() {
       try {
         const res = await fetch(`digest.json?t=${Date.now()}`);
@@ -100,6 +212,7 @@
           return;
         }
         document.getElementById("list").innerHTML = entries.map(renderDigest).join("");
+        bindItemClicks();
       } catch (e) {
         document.getElementById("empty").style.display = "block";
       }
