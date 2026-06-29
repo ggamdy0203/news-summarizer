@@ -105,6 +105,7 @@
   <div class="nav">
     <a href="index.html">🔗 링크 요약</a>
     <a href="digest.html" class="active">📰 자동 다이제스트</a>
+    <a href="saved.html">⭐ 저장한 기사</a>
   </div>
 
   <div class="catTabs" id="catTabs"></div>
@@ -152,7 +153,8 @@
                  data-title="${escapeHtml(item.title)}"
                  data-url="${escapeHtml(item.url)}"
                  data-summary="${escapeHtml(item.summary || "")}"
-                 data-source="${escapeHtml(section.source)}">
+                 data-source="${escapeHtml(section.source)}"
+                 data-category="${escapeHtml(cat.category)}">
               <div class="itemTitle">${escapeHtml(item.title)}</div>
               <div class="itemArrow">›</div>
             </div>
@@ -226,7 +228,7 @@
     function bindPanelActions(panel, data) {
       const saveBtn = panel.querySelector('[data-action="save"]');
       saveBtn.addEventListener("click", () => {
-        const added = addToHistory(data.url, data.summary, data.title);
+        const added = addToHistory(data.url, data.summary, data.title, data.category);
         if (added) {
           saveBtn.disabled = true;
           saveBtn.textContent = "✓ 저장됨";

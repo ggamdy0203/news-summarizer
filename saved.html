@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>저장한 기사</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Malgun Gothic", sans-serif;
+    max-width: 720px; margin: 0 auto; padding: 16px;
+    background: #f5f6f8; color: #222;
+  }
+  h1 { font-size: 20px; margin-bottom: 4px; }
+  .sub { color: #888; font-size: 13px; margin-bottom: 16px; }
+
+  .nav { display: flex; gap: 8px; margin-bottom: 16px; }
+  .nav a {
+    flex: 1; text-align: center; padding: 9px 0; border-radius: 6px;
+    font-size: 13px; text-decoration: none; color: #555; background: #fff;
+    border: 1px solid #ddd;
+  }
+  .nav a.active { background: #2a4d8f; color: #fff; border-color: #2a4d8f; }
+
+  .catTabs {
+    display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto;
+    padding-bottom: 2px;
+  }
+  .catTabs button {
+    flex-shrink: 0; padding: 8px 14px; border-radius: 20px; border: 1px solid #ddd;
+    background: #fff; color: #555; font-size: 13px; font-weight: 500; cursor: pointer;
+  }
+  .catTabs button:hover { background: #f0f2f7; }
+  .catTabs button.active { background: #2a4d8f; color: #fff; border-color: #2a4d8f; }
+  .catTabs button .catCount { opacity: 0.7; font-size: 11px; margin-left: 2px; }
+
+  .card {
+    background: #fff; border-radius: 10px; padding: 4px 12px;
+    margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  .newsRow { border-top: 1px solid #f2f2f2; }
+  .newsRow:first-of-type { border-top: none; }
+
+  .newsItem {
+    padding: 11px 4px; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    border-radius: 6px;
+  }
+  .newsItem:hover { background: #f7f9fc; }
+  .newsItem .itemTitle {
+    color: #222; font-weight: 500; font-size: 14px; line-height: 1.4;
+    overflow: hidden; text-overflow: ellipsis; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .newsItem .itemMeta { font-size: 11px; color: #999; margin-top: 2px; }
+  .newsItem.open .itemTitle, .newsItem:hover .itemTitle { color: #2a4d8f; }
+  .newsItem .itemArrow {
+    color: #bbb; font-size: 13px; flex-shrink: 0; transition: transform 0.15s ease;
+  }
+  .newsItem:hover .itemArrow { color: #2a4d8f; }
+  .newsItem.open .itemArrow { transform: rotate(90deg); color: #2a4d8f; }
+
+  .itemPanel {
+    display: none; padding: 4px 4px 16px 4px; margin-top: -2px;
+  }
+  .itemPanel.open { display: block; }
+  .itemPanel .panelActions { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+  #empty { color: #999; font-size: 13px; text-align: center; padding: 30px 0; }
+
+  button {
+    padding: 8px 14px; border-radius: 6px; border: none;
+    background: #2a4d8f; color: #fff; font-size: 13px; cursor: pointer;
+  }
+  button:hover { background: #1f3a6e; }
+  button.secondary { background: #eee; color: #444; }
+  button.secondary:hover { background: #ddd; }
+  button.danger { background: #c0392b; }
+  button.danger:hover { background: #992d22; }
+
+  .summaryList { list-style: none; margin: 0; padding: 0; }
+  .summaryList li {
+    position: relative; padding: 6px 0 6px 20px;
+    font-size: 14px; line-height: 1.55; color: #333;
+    border-bottom: 1px solid #f3f3f3;
+  }
+  .summaryList li:last-child { border-bottom: none; }
+  .summaryList li::before { content: "•"; position: absolute; left: 4px; color: #2a4d8f; font-weight: 700; }
+  .itemPanel p { font-size: 14px; line-height: 1.6; white-space: pre-wrap; margin: 0; color: #333; }
+</style>
+</head>
+<body>
+  <h1>저장한 기사</h1>
+  <div class="sub">자동 다이제스트나 링크 요약에서 ⭐ 저장한 기사가 카테고리별로 모입니다.</div>
+
+  <div class="nav">
+    <a href="index.html">🔗 링크 요약</a>
+    <a href="digest.html">📰 자동 다이제스트</a>
+    <a href="saved.html" class="active">⭐ 저장한 기사</a>
+  </div>
+
+  <div class="catTabs" id="catTabs"></div>
+
+  <div class="card" id="listCard"><div id="list"></div></div>
+  <div id="empty" style="display:none;">아직 저장한 기사가 없습니다. 다이제스트나 링크 요약 결과에서 ⭐ 저장하기를 눌러보세요.</div>
+
+  <script src="shared.js"></script>
+  <script>
+    const CATEGORIES = ["부동산", "금융", "증권", "산업", "글로벌경제", "기타"];
+    let currentCategory = null; // null = 전체
+
+    function countByCategory(history) {
+      const counts = {};
+      history.forEach(h => {
+        const c = h.category || "기타";
+        counts[c] = (counts[c] || 0) + 1;
+      });
+      return counts;
+    }
+
+    function renderCatTabs(history) {
+      const counts = countByCategory(history);
+      const tabsEl = document.getElementById("catTabs");
+      const allBtn = `<button data-cat="" class="${currentCategory === null ? "active" : ""}">전체 <span class="catCount">${history.length}</span></button>`;
+      const catBtns = CATEGORIES.map(cat => {
+        const n = counts[cat] || 0;
+        return `<button data-cat="${escapeHtml(cat)}" class="${currentCategory === cat ? "active" : ""}">${escapeHtml(cat)} <span class="catCount">${n}</span></button>`;
+      }).join("");
+      tabsEl.innerHTML = allBtn + catBtns;
+      tabsEl.querySelectorAll("button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          currentCategory = btn.dataset.cat || null;
+          render();
+        });
+      });
+    }
+
+    function renderPanelContent(item) {
+      return `
+        <div class="panelSummary">${renderSummaryHtml(item.summary || "(요약이 없습니다)")}</div>
+        <div class="panelActions">
+          <button class="danger" data-action="delete">삭제</button>
+          <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener"><button class="secondary" type="button">원문 보러가기 ↗</button></a>
+        </div>
+      `;
+    }
+
+    function closeAllRows(except) {
+      document.querySelectorAll(".newsItem.open").forEach(el => {
+        if (el !== except) {
+          el.classList.remove("open");
+          document.getElementById(`panel-${el.dataset.rowId}`).classList.remove("open");
+        }
+      });
+    }
+
+    function toggleRow(itemEl, item) {
+      const panel = document.getElementById(`panel-${itemEl.dataset.rowId}`);
+      const isOpen = itemEl.classList.contains("open");
+      closeAllRows(itemEl);
+      if (isOpen) {
+        itemEl.classList.remove("open");
+        panel.classList.remove("open");
+        return;
+      }
+      panel.innerHTML = renderPanelContent(item);
+      panel.classList.add("open");
+      itemEl.classList.add("open");
+      panel.querySelector('[data-action="delete"]').addEventListener("click", () => {
+        const updated = loadHistory().filter(h => h.id !== item.id);
+        saveHistory(updated);
+        render();
+      });
+      itemEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    function render() {
+      const history = loadHistory();
+      renderCatTabs(history);
+
+      const filtered = currentCategory ? history.filter(h => (h.category || "기타") === currentCategory) : history;
+
+      const listEl = document.getElementById("list");
+      const emptyEl = document.getElementById("empty");
+      const cardEl = document.getElementById("listCard");
+
+      if (filtered.length === 0) {
+        cardEl.style.display = "none";
+        emptyEl.style.display = "block";
+        return;
+      }
+      cardEl.style.display = "block";
+      emptyEl.style.display = "none";
+
+      listEl.innerHTML = filtered.map((item, idx) => {
+        const rowId = `row-${idx}`;
+        return `
+          <div class="newsRow">
+            <div class="newsItem" data-row-id="${rowId}" data-id="${escapeHtml(item.id)}">
+              <div>
+                <div class="itemTitle">${escapeHtml(item.title || item.url)}</div>
+                <div class="itemMeta">${escapeHtml(item.category || "기타")} · ${new Date(item.createdAt).toLocaleString("ko-KR")}</div>
+              </div>
+              <div class="itemArrow">›</div>
+            </div>
+            <div class="itemPanel" id="panel-${rowId}"></div>
+          </div>
+        `;
+      }).join("");
+
+      listEl.querySelectorAll(".newsItem").forEach(el => {
+        const item = filtered.find(h => h.id === el.dataset.id);
+        el.addEventListener("click", () => toggleRow(el, item));
+      });
+    }
+
+    render();
+  </script>
+</body>
+</html>

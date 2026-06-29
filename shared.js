@@ -105,7 +105,7 @@ function saveHistory(history) {
   localStorage.setItem(STORAGE_KEY_HISTORY, JSON.stringify(history));
 }
 
-function addToHistory(url, summary, title) {
+function addToHistory(url, summary, title, category) {
   const history = loadHistory();
   if (history.some(h => h.url === url)) {
     return false; // 이미 저장된 기사
@@ -115,6 +115,7 @@ function addToHistory(url, summary, title) {
     url,
     title: title || "",
     summary,
+    category: category || "기타",
     createdAt: new Date().toISOString(),
   });
   saveHistory(history);
