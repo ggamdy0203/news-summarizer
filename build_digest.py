@@ -32,7 +32,8 @@ NAVER_CLIENT_SECRET = _secrets["NAVER_CLIENT_SECRET"]
 
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 KST = timezone(timedelta(hours=9))
-MAX_PER_CATEGORY = 3
+FETCH_POOL = 25   # 소스별 후보 수집량
+SELECT_COUNT = 7  # Gemini가 선별할 최종 기사 수
 
 SUMMARY_FORMAT = (
     '요약은 3~4개의 핵심 포인트로 나눠서, 포인트마다 줄을 바꾸고 맨 앞에 "• "를 붙여줘. '
@@ -138,23 +139,49 @@ def call_gemini(prompt, use_url_context):
     return text, status
 
 
-SKIP_MARKER = "__SKIP__"
+def select_articles(items, category, count):
+    """제목 목록을 Gemini에 한 번에 보내 투자자 관점 상위 기사 인덱스 선별."""
+    titles = [it["title"] for it in items]
+    numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(titles))
+    prompt = (
+        f"다음은 오늘 [{category}] 섹터 뉴스 제목 목록이다.\n"
+        f"부동산·경매·금융·증권·산업·글로벌경제 투자에 관심 많은 투자자 입장에서 "
+        f"가장 중요하고, 섹터에 직접 부합하며, 관심을 끌 만한 기사 {count}개를 골라라.\n"
+        f"스포츠, 정치·외교(경제 무관), 문화·연예, 지역 행사, 단순 인사 발령처럼 "
+        f"투자와 무관한 기사는 반드시 제외해라.\n"
+        f"응답은 선택한 기사의 번호만 쉼표로 구분해서 써라. 예: 2,5,8,11,14,17,20\n\n"
+        f"{numbered}"
+    )
+    try:
+        text, _ = call_gemini(prompt, use_url_context=False)
+        indices = []
+        for part in re.split(r"[,\s]+", text.strip()):
+            part = re.sub(r"[^\d]", "", part)
+            if part.isdigit():
+                idx = int(part) - 1
+                if 0 <= idx < len(items) and idx not in indices:
+                    indices.append(idx)
+        if len(indices) < count:
+            # 부족하면 앞에서 채움
+            for i in range(len(items)):
+                if i not in indices:
+                    indices.append(i)
+                if len(indices) >= count:
+                    break
+        return indices[:count]
+    except Exception as e:
+        log(f"  [경고] 기사 선별 실패: {e}")
+        return list(range(min(count, len(items))))
 
-def summarize(article_url, category=None):
-    cat_filter = (
-        f"이 기사가 [{category}] 분야(투자·경제·금융·산업·부동산 등 경제 관련)와 직접적으로 관련이 없다면 "
-        f"'SKIP'이라고만 답하고 끝내. 관련 있을 때만 아래 형식으로 요약해줘. "
-    ) if category else ""
 
+def summarize(article_url):
     try:
         prompt = (
-            f"다음 링크에 접속해서 글 내용을 읽고 핵심만 한국어로 요약해줘. {cat_filter}{SUMMARY_FORMAT} "
+            f"다음 링크에 접속해서 글 내용을 읽고 핵심만 한국어로 요약해줘. {SUMMARY_FORMAT} "
             f"머릿말이나 따옴표 없이 바로 첫 포인트부터 시작해.\n\n링크: {article_url}"
         )
         text, status = call_gemini(prompt, use_url_context=True)
         if status == "URL_RETRIEVAL_STATUS_SUCCESS" and text:
-            if text.strip().upper().startswith("SKIP"):
-                return SKIP_MARKER
             return text
     except Exception as e:
         log(f"    url_context 실패: {e}")
@@ -165,11 +192,9 @@ def summarize(article_url, category=None):
             article_text = r.read().decode("utf-8", errors="replace")[:16000]
         fallback_prompt = (
             "다음은 어떤 기사 페이지에서 가져온 텍스트다. 광고/메뉴/구독 안내 같은 본문과 무관한 내용은 "
-            f"무시하고, 핵심만 한국어로 요약해줘. {cat_filter}{SUMMARY_FORMAT} 머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n{article_text}"
+            f"무시하고, 핵심만 한국어로 요약해줘. {SUMMARY_FORMAT} 머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n{article_text}"
         )
         text2, _ = call_gemini(fallback_prompt, use_url_context=False)
-        if text2 and text2.strip().upper().startswith("SKIP"):
-            return SKIP_MARKER
         return text2 or "요약 내용을 생성하지 못했습니다."
     except Exception as e:
         return f"요약 내용을 생성하지 못했습니다. ({e})"
@@ -188,22 +213,25 @@ def build_entry(slot):
         cat_name = cat["category"]
         log(f"[{cat_name}] 기사 수집 중...")
 
-        hk_items = pick_top(fetch_hankyung_rss(cat["hk_feed"]), MAX_PER_CATEGORY)
-        naver_items = pick_top(fetch_naver_news(cat["naver_query"]), MAX_PER_CATEGORY)
+        hk_pool = pick_top(fetch_hankyung_rss(cat["hk_feed"]), FETCH_POOL)
+        naver_pool = pick_top(fetch_naver_news(cat["naver_query"]), FETCH_POOL)
 
         sections = []
-        for source_name, items in [(HK_SOURCE_NAME, hk_items), (NAVER_SOURCE_NAME, naver_items)]:
+        for source_name, pool in [(HK_SOURCE_NAME, hk_pool), (NAVER_SOURCE_NAME, naver_pool)]:
             if cat["hk_feed"] is None and source_name == HK_SOURCE_NAME:
                 continue
-            if not items:
+            if not pool:
                 continue
+
+            log(f"  [{source_name}] 후보 {len(pool)}개 중 {SELECT_COUNT}개 선별 중...")
+            selected_indices = select_articles(pool, cat_name, SELECT_COUNT)
+            selected = [pool[i] for i in selected_indices]
+            log(f"  선별 완료: {[it['title'][:20] for it in selected]}")
+
             built_items = []
-            for it in items:
+            for it in selected:
                 log(f"  요약 중: {it['title'][:40]}")
-                summary = summarize(it["url"], category=cat_name)
-                if summary == SKIP_MARKER:
-                    log(f"    → [{cat_name}]와 무관한 기사, 제외")
-                    continue
+                summary = summarize(it["url"])
                 built_items.append({"title": it["title"], "url": it["url"], "summary": summary})
                 headline_candidates.append(it["title"])
                 time.sleep(0.3)
