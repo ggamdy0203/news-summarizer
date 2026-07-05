@@ -138,14 +138,23 @@ def call_gemini(prompt, use_url_context):
     return text, status
 
 
-def summarize(article_url):
+SKIP_MARKER = "__SKIP__"
+
+def summarize(article_url, category=None):
+    cat_filter = (
+        f"이 기사가 [{category}] 분야(투자·경제·금융·산업·부동산 등 경제 관련)와 직접적으로 관련이 없다면 "
+        f"'SKIP'이라고만 답하고 끝내. 관련 있을 때만 아래 형식으로 요약해줘. "
+    ) if category else ""
+
     try:
         prompt = (
-            f"다음 링크에 접속해서 글 내용을 읽고 핵심만 한국어로 요약해줘. {SUMMARY_FORMAT} "
+            f"다음 링크에 접속해서 글 내용을 읽고 핵심만 한국어로 요약해줘. {cat_filter}{SUMMARY_FORMAT} "
             f"머릿말이나 따옴표 없이 바로 첫 포인트부터 시작해.\n\n링크: {article_url}"
         )
         text, status = call_gemini(prompt, use_url_context=True)
         if status == "URL_RETRIEVAL_STATUS_SUCCESS" and text:
+            if text.strip().upper().startswith("SKIP"):
+                return SKIP_MARKER
             return text
     except Exception as e:
         log(f"    url_context 실패: {e}")
@@ -156,9 +165,11 @@ def summarize(article_url):
             article_text = r.read().decode("utf-8", errors="replace")[:16000]
         fallback_prompt = (
             "다음은 어떤 기사 페이지에서 가져온 텍스트다. 광고/메뉴/구독 안내 같은 본문과 무관한 내용은 "
-            f"무시하고, 핵심만 한국어로 요약해줘. {SUMMARY_FORMAT} 머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n{article_text}"
+            f"무시하고, 핵심만 한국어로 요약해줘. {cat_filter}{SUMMARY_FORMAT} 머릿말이나 따옴표 없이 바로 요약문부터 시작해.\n\n{article_text}"
         )
         text2, _ = call_gemini(fallback_prompt, use_url_context=False)
+        if text2 and text2.strip().upper().startswith("SKIP"):
+            return SKIP_MARKER
         return text2 or "요약 내용을 생성하지 못했습니다."
     except Exception as e:
         return f"요약 내용을 생성하지 못했습니다. ({e})"
@@ -189,7 +200,10 @@ def build_entry(slot):
             built_items = []
             for it in items:
                 log(f"  요약 중: {it['title'][:40]}")
-                summary = summarize(it["url"])
+                summary = summarize(it["url"], category=cat_name)
+                if summary == SKIP_MARKER:
+                    log(f"    → [{cat_name}]와 무관한 기사, 제외")
+                    continue
                 built_items.append({"title": it["title"], "url": it["url"], "summary": summary})
                 headline_candidates.append(it["title"])
                 time.sleep(0.3)
