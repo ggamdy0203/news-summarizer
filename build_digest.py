@@ -216,15 +216,20 @@ def build_entry(slot):
         hk_pool = pick_top(fetch_hankyung_rss(cat["hk_feed"]), FETCH_POOL)
         naver_pool = pick_top(fetch_naver_news(cat["naver_query"]), FETCH_POOL)
 
+        # 소스가 1개뿐인 카테고리(금융·산업)는 네이버에서 14개 전부 선별
+        has_hk = bool(cat["hk_feed"])
+        per_source = SELECT_COUNT if has_hk else SELECT_COUNT * 2
+
         sections = []
         for source_name, pool in [(HK_SOURCE_NAME, hk_pool), (NAVER_SOURCE_NAME, naver_pool)]:
-            if cat["hk_feed"] is None and source_name == HK_SOURCE_NAME:
+            if not has_hk and source_name == HK_SOURCE_NAME:
                 continue
             if not pool:
                 continue
 
-            log(f"  [{source_name}] 후보 {len(pool)}개 중 {SELECT_COUNT}개 선별 중...")
-            selected_indices = select_articles(pool, cat_name, SELECT_COUNT)
+            count = SELECT_COUNT if source_name == HK_SOURCE_NAME else per_source
+            log(f"  [{source_name}] 후보 {len(pool)}개 중 {count}개 선별 중...")
+            selected_indices = select_articles(pool, cat_name, count)
             selected = [pool[i] for i in selected_indices]
             log(f"  선별 완료: {[it['title'][:20] for it in selected]}")
 
