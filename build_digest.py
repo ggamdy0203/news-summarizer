@@ -20,10 +20,17 @@ import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 
-# API 키는 이 저장소에 커밋되지 않는 별도 로컬 파일(secrets.local.json)에서 읽는다.
+# 로컬: secrets.local.json / GitHub Actions: 환경변수(Secrets)
 _SECRETS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "secrets.local.json")
-with open(_SECRETS_PATH, "r", encoding="utf-8") as _f:
-    _secrets = json.load(_f)
+if os.path.exists(_SECRETS_PATH):
+    with open(_SECRETS_PATH, "r", encoding="utf-8") as _f:
+        _secrets = json.load(_f)
+else:
+    _secrets = {
+        "GEMINI_API_KEY": os.environ.get("GEMINI_API_KEY", ""),
+        "NAVER_CLIENT_ID": os.environ.get("NAVER_CLIENT_ID", ""),
+        "NAVER_CLIENT_SECRET": os.environ.get("NAVER_CLIENT_SECRET", ""),
+    }
 
 GEMINI_API_KEY = _secrets["GEMINI_API_KEY"]
 GEMINI_MODEL = "gemini-2.5-flash"
