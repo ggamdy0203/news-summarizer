@@ -1,0 +1,24 @@
+{
+  "name": "투자 뉴스 다이제스트",
+  "short_name": "뉴스다이제스트",
+  "description": "매일 오전/오후 부동산·금융·증권·산업·글로벌경제 뉴스 자동 정리",
+  "start_url": "/news-summarizer/digest.html",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#2a4d8f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
