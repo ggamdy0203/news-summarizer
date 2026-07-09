@@ -2,6 +2,427 @@
   "entries": [
     {
       "label": "오후 다이제스트 · 2026-07-09",
+      "createdAt": "2026-07-09T10:04:05.365064Z",
+      "categories": [
+        {
+          "category": "부동산",
+          "sections": [
+            {
+              "source": "한국경제",
+              "items": [
+                {
+                  "title": "'건설의 날'…금탑훈장에 조인호 해광이엔씨 대표",
+                  "url": "https://www.hankyung.com/article/2026070961941",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "서울외곽 강세 지속…동탄·기흥·구리 '막판 매수' 몰렸다",
+                  "url": "https://www.hankyung.com/article/2026070961981",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "광주 군공항 인근 토지거래구역 지정",
+                  "url": "https://www.hankyung.com/article/2026070962041",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "한강이 가른 분양가 격차, 3년새 7배로",
+                  "url": "https://www.hankyung.com/article/2026070962001",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "스마트 건설·친환경 접목…현대·삼성, 스타트업 지원",
+                  "url": "https://www.hankyung.com/article/2026070962021",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "모아주택, 용적률 최대 500%·층수 규제 완화",
+                  "url": "https://www.hankyung.com/article/2026070961991",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "서울 소형아파트 경매 '과열'…전용 60㎡ 낙찰가율 113%",
+                  "url": "https://www.hankyung.com/article/2026070962011",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            },
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "케이뱅크, 개인사업자 대출 5조원 돌파…인터넷은행 기업금융 경쟁 본격...",
+                  "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=204728",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "'빚내서 집·주식 산다'…은행 가계대출 7.6조↑",
+                  "url": "https://www.ggilbo.com/news/articleView.html?idxno=1168595",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "분양 이어 입주 전망까지 '상승'…충청 부동산 기대 ↑",
+                  "url": "https://www.ggilbo.com/news/articleView.html?idxno=1168582",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "韓총리, 고양시 찾아 3기 신도시 점검…\"신속 공급 중요\"",
+                  "url": "https://www.yna.co.kr/view/AKR20260709186200001?input=1195m",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "부동산 단기임대 '삼삼엠투', 상반기에만 거래액 1500억 돌파",
+                  "url": "https://www.mt.co.kr/future/2026/07/09/2026070911292390717",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "은행 가계대출 7.6조 급증…집값·빚투에 대출 조이기도 '본격화'",
+                  "url": "http://www.newsian.co.kr/news/articleView.html?idxno=92031",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "전주지역 가짜분양권 사기 각별히 주의해야",
+                  "url": "http://www.jeonmin.co.kr/news/articleView.html?idxno=443013",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "금융",
+          "sections": [
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "['클릭' 증시] 불안 속 옥석 가리기...반도체·IT 부품주 투심 회복",
+                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105041",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "브로드리지, 토큰증권·AI로 금융 혁신 가속…DLR 하루 3570억 달러 처리",
+                  "url": "https://www.tokenpost.kr/news/blockchain/376263",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "신한카드 '원격지' 발령, 노조 \"인력조정 연장선\" vs 사측 \"퇴직 압박성...",
+                  "url": "http://www.finomy.com/news/articleView.html?idxno=257001",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "HSBC, 금값 전망 하향 조정…국내 금시세 상승 전환",
+                  "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=81796",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "[단독] 김병기 前 보좌관 “업비트 수수료 올려라” 압박… 빗썸 지원 ...",
+                  "url": "https://www.kmib.co.kr/article/view.asp?arcid=1783589879&code=11131100&cp=nv",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "케이뱅크, 개인사업자 대출 5조원 돌파…인터넷은행 기업금융 경쟁 본격...",
+                  "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=204728",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "넥써쓰, 체인저·페이더플라이와 3자 MOU 체결…UAE서 결제 인프라 구축",
+                  "url": "https://www.xportsnews.com/article/2170183",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "'빚내서 집·주식 산다'…은행 가계대출 7.6조↑",
+                  "url": "https://www.ggilbo.com/news/articleView.html?idxno=1168595",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "신현송 \"금리 인상 필요… 원화 강세 전환 가능성 커\"",
+                  "url": "https://www.newscj.com/news/articleView.html?idxno=3415886",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "한-몽 CEPA 원칙적 타결…90% 이상의 자유화 수준 달성",
+                  "url": "https://www.newsis.com/view/NISX20260709_0003703360",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "\"우리가 알던 달러가 아니다\"…경제학자들 '충격' 받은 이유",
+                  "url": "https://www.hankyung.com/article/2026070963301",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "한·몽 CEPA 원칙 타결…핵심광물부터 K-소비재까지 '경제동맹' 새 장",
+                  "url": "https://www.news1.kr/economy/idustry-trade/6223583",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "은행 가계대출 7.6조 급증…집값·빚투에 대출 조이기도 '본격화'",
+                  "url": "http://www.newsian.co.kr/news/articleView.html?idxno=92031",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "BNK경남은행, 거제시에 에너지나눔 성금 기탁",
+                  "url": "https://www.gnnews.co.kr/news/articleView.html?idxno=640744",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "증권",
+          "sections": [
+            {
+              "source": "한국경제",
+              "items": [
+                {
+                  "title": "\"주식시장이 도박판 됐다\" 부자들 돈 빼더니…'무서운 경고'",
+                  "url": "https://www.hankyung.com/article/2026070962831",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "확신이 사라진 증시, 실탄이 줄었다",
+                  "url": "https://www.hankyung.com/article/2026070963441",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "AI로 사라질 일자리, 지수화해 조기 경보",
+                  "url": "https://www.hankyung.com/article/2026070962651",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "'300달러 데님' 불티…리바이스 실적전망 상향",
+                  "url": "https://www.hankyung.com/article/2026070962221",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "반도체 장비株 기가비스, 코스닥 널뛰기에도 '고공행진'",
+                  "url": "https://www.hankyung.com/article/2026070962811",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "NH證, 인도 증권사에 1400억 투자",
+                  "url": "https://www.hankyung.com/article/2026070962771",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "2분기 美 매출 252% '쑥'…에이피알 최대실적 찍나",
+                  "url": "https://www.hankyung.com/article/2026070962761",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            },
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "성남도시개발공사, AI 보안기술로 체육시설 예약 매크로 차단(절대 보류...",
+                  "url": "https://www.dongponews.net/news/articleView.html?idxno=59192",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "NH농협생명, 정보보호 실천 캠페인…고객정보 보호 강화",
+                  "url": "http://www.sisacast.kr/news/articleView.html?idxno=97660",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "NH투자증권, 인도 초이스증권 전략적 투자...글로벌 사업 거점 확대",
+                  "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=467163",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "'SK하이닉스 200만원 넘는데'…BNK증권, 목표가 185만원 제시",
+                  "url": "https://www.yna.co.kr/view/AKR20260709189600008?input=1195m",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "['클릭' 증시] 불안 속 옥석 가리기...반도체·IT 부품주 투심 회복",
+                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105041",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "브로드리지, 토큰증권·AI로 금융 혁신 가속…DLR 하루 3570억 달러 처리",
+                  "url": "https://www.tokenpost.kr/news/blockchain/376263",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "\"하도 당해서 전 나갑니다\"…반등장서 '우르르' 탈출한 개미들",
+                  "url": "http://www.inews24.com/view/1984203",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "산업",
+          "sections": [
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "한-몽골 CEPA 원칙적 타결 선언…\"경제협력 전반 뒷받침 기대\"",
+                  "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=05402166645512880",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "김상욱 시장 \"시장 권한 내려놓고 시민이 주인인 울산 만들 것\"",
+                  "url": "https://www.iusm.co.kr/news/articleView.html?idxno=1065199",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "농산물 값 폭락·생산비 급등 농민 이중고",
+                  "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1087642",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "LX하우시스 수입·공급 주방가구 재건축·재개발 시장서 인기",
+                  "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1087644",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "[금요칼럼] 대학도 결국 팀플레이다",
+                  "url": "https://www.jjan.kr/article/20260709500179",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "공론의 장 오른 청사 해법찾기…통합특별시 안착 ‘시험대’",
+                  "url": "http://www.jndn.com/article.php?aid=1783591401435854001",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "[오목대] 동학혁명과 정읍, 복종과 소신",
+                  "url": "https://www.jjan.kr/article/20260709500450",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "전력거래소, 여름철 전력수급 비상훈련… 복합재난 대응체계 점검",
+                  "url": "http://www.lawissue.co.kr/view.php?ud=20260709175811615307f28b58b8_12",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "산업부, 5천만 원 규모 'RE100 산업단지' 전력 모델 연구용역 발주",
+                  "url": "https://www.businesspost.co.kr/BP?command=article_view&num=442004",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "AI로 실직 때 소득안전망 추진한다",
+                  "url": "https://www.kmib.co.kr/article/view.asp?arcid=1783587886&code=11131100&cp=nv",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "롯데호텔앤리조트, 호텔 부문 브랜드지수 15년 연속 1위",
+                  "url": "http://www.lawissue.co.kr/view.php?ud=20260709180134940007f28b58b8_12",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "대전시의회 전반기 상임위원장 선출",
+                  "url": "https://www.ggilbo.com/news/articleView.html?idxno=1168587",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "[특징주] 네이처셀, 조인트스템 허가 재도전 기대감에 상한가 마감",
+                  "url": "https://www.biotimes.co.kr/news/articleView.html?idxno=33072",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "신정훈 의원 “통합 지방정부 20조 약속 이행해야”",
+                  "url": "http://www.jndn.com/article.php?aid=1783591176435849093",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "글로벌경제",
+          "sections": [
+            {
+              "source": "한국경제",
+              "items": [
+                {
+                  "title": "\"미국 무역적자, 기축통화 탓 아냐\"…무너진 트럼프의 논리",
+                  "url": "https://www.hankyung.com/article/2026070963311",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "AI랠리 식었나…美기술주 70% 주가 20% 꺾였다",
+                  "url": "https://www.hankyung.com/article/2026070962171",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "中, PCB 제조설비 증설 경쟁…글로벌 공급 과잉 오나",
+                  "url": "https://www.hankyung.com/article/2026070962441",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "\"AI 투자도 인플레 요인\"…Fed, 금리인상 가능성",
+                  "url": "https://www.hankyung.com/article/2026070962411",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "美, 확전 가능성에 선 긋더니…이란 90곳 추가공습",
+                  "url": "https://www.hankyung.com/article/2026070962391",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "트럼프 '탈퇴' 으름장에…나토 \"국방비 500억弗 추가 조달\"",
+                  "url": "https://www.hankyung.com/article/2026070962431",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "글로벌 완성차, 1대당 이익 줄줄이 급감",
+                  "url": "https://www.hankyung.com/article/2026070962401",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            },
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "메가 프로젝트 견인…전남광주 반도체산업 지원단 출범",
+                  "url": "http://www.jndn.com/article.php?aid=1783591487435856001",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "충북중기청, 내달 10일까지 혁신제품 신규 지정 접수",
+                  "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1087640",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "카자흐스탄 할랄 인증, 의무는 아니지만 \"표시하려면 근거가 필요\"",
+                  "url": "http://dream.kotra.or.kr/kotranews/cms/news/actionKotraBoardDetail.do?SITE_NO=3&MENU_ID=90&CONTENTS_NO=1&bbsGbn=244&bbsSn=244&pNttSn=242542",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "['클릭' 증시] 불안 속 옥석 가리기...반도체·IT 부품주 투심 회복",
+                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105041",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "HSBC, 금값 전망 하향 조정…국내 금시세 상승 전환",
+                  "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=81796",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "'80년 달러의 변신'…기축통화서 수익자산으로",
+                  "url": "https://www.hankyung.com/article/2026070963421",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                },
+                {
+                  "title": "\"우리가 알던 달러가 아니다\"…경제학자들 '충격' 받은 이유",
+                  "url": "https://www.hankyung.com/article/2026070963301",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 429: Too Many Requests)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "오후 다이제스트 · 2026-07-09",
       "createdAt": "2026-07-09T05:21:20.237690Z",
       "categories": [
         {
