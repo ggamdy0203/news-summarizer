@@ -239,10 +239,20 @@ def summarize(article_url):
         return f"요약 내용을 생성하지 못했습니다. ({e})"
 
 
+SLOT_LABELS = {
+    "0700": "오전 7시 다이제스트",
+    "1000": "오전 10시 다이제스트",
+    "1200": "오후 12시 다이제스트",
+    "1500": "오후 3시 다이제스트",
+    "morning": "오전 다이제스트",
+    "afternoon": "오후 다이제스트",
+}
+
+
 def build_entry(slot):
     now_kst = datetime.now(timezone.utc).astimezone(KST)
     today_str = now_kst.strftime("%Y-%m-%d")
-    label_prefix = "오전 다이제스트" if slot == "morning" else "오후 다이제스트"
+    label_prefix = SLOT_LABELS.get(slot, f"{slot} 다이제스트")
     label = f"{label_prefix} · {today_str}"
 
     categories_out = []

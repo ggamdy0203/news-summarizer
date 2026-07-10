@@ -2,8 +2,10 @@ name: News Digest Auto Update
 
 on:
   schedule:
-    - cron: '7 0 * * *'   # KST 09:07 (UTC 00:07)
-    - cron: '10 6 * * *'  # KST 15:10 (UTC 06:10)
+    - cron: '0 22 * * *'  # KST 07:00 (UTC 22:00 전날)
+    - cron: '0 1 * * *'   # KST 10:00 (UTC 01:00)
+    - cron: '0 3 * * *'   # KST 12:00 (UTC 03:00)
+    - cron: '0 6 * * *'   # KST 15:00 (UTC 06:00)
   workflow_dispatch:       # GitHub에서 수동 실행 버튼
 
 permissions:
@@ -22,15 +24,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Determine slot (morning / afternoon)
+      - name: Determine slot by KST hour
         id: slot
         run: |
-          # 스케줄 실행이 몇 시간 지연돼도 KST 기준 오전/오후로 판정
           HOUR=$(TZ=Asia/Seoul date +%H)
-          if [ "$HOUR" -lt 12 ]; then
-            echo "slot=morning" >> $GITHUB_OUTPUT
+          if [ "$HOUR" -lt 9 ]; then
+            echo "slot=0700" >> $GITHUB_OUTPUT
+          elif [ "$HOUR" -lt 11 ]; then
+            echo "slot=1000" >> $GITHUB_OUTPUT
+          elif [ "$HOUR" -lt 13 ]; then
+            echo "slot=1200" >> $GITHUB_OUTPUT
           else
-            echo "slot=afternoon" >> $GITHUB_OUTPUT
+            echo "slot=1500" >> $GITHUB_OUTPUT
           fi
 
       - name: Run digest
