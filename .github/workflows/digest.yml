@@ -25,8 +25,9 @@ jobs:
       - name: Determine slot (morning / afternoon)
         id: slot
         run: |
-          HOUR=$(date -u +%H)
-          if [ "$HOUR" = "00" ]; then
+          # 스케줄 실행이 몇 시간 지연돼도 KST 기준 오전/오후로 판정
+          HOUR=$(TZ=Asia/Seoul date +%H)
+          if [ "$HOUR" -lt 12 ]; then
             echo "slot=morning" >> $GITHUB_OUTPUT
           else
             echo "slot=afternoon" >> $GITHUB_OUTPUT
