@@ -43,6 +43,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          PYTHONIOENCODING: utf-8
+          PYTHONUTF8: "1"
         run: python build_digest.py ${{ steps.slot.outputs.slot }}
 
       - name: Commit and push

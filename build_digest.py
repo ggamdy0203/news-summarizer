@@ -62,7 +62,10 @@ NAVER_SOURCE_NAME = "네이버 뉴스"
 
 
 def log(msg):
-    print(msg, flush=True)
+    try:
+        print(msg, flush=True)
+    except UnicodeEncodeError:
+        print(msg.encode("utf-8", errors="replace").decode("ascii", errors="replace"), flush=True)
 
 
 def fetch_hankyung_rss(feed):
