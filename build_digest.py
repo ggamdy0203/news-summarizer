@@ -146,7 +146,7 @@ def call_gemini(prompt, use_url_context, model=None):
         headers={"Content-Type": "application/json"}, method="POST",
     )
     data = None
-    for attempt in range(4):
+    for attempt in range(2):  # 최대 1회 재시도 — 긴 대기로 Actions가 수 시간 걸리는 것 방지
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
                 data = json.load(r)
@@ -159,14 +159,12 @@ def call_gemini(prompt, use_url_context, model=None):
             except Exception:
                 detail = ""
             if "PerDay" in detail:
-                # 일일 쿼터 소진은 기다려도 회복 안 됨 (태평양 자정 리셋)
                 _daily_quota_exhausted.add(model)
                 raise RuntimeError(f"{model} 일일 쿼터 소진(429)")
-            if attempt == 3:
+            if attempt == 1:
                 raise
-            wait = 20 * (attempt + 1)
-            log(f"    429(분당 제한) — {wait}초 대기 후 재시도")
-            time.sleep(wait)
+            log("    429(분당 제한) — 15초 대기 후 재시도")
+            time.sleep(15)
     cand = (data.get("candidates") or [{}])[0]
     parts = (cand.get("content") or {}).get("parts") or []
     text = "".join(p.get("text", "") for p in parts).strip()
@@ -234,10 +232,8 @@ def summarize(article_url):
             url_context_hit_429 = True
         log(f"    url_context 실패: {e}")
 
-    # url_context가 429로 실패했으면 잠시 대기 후 재시도
     if url_context_hit_429:
-        log("    429 감지 — 30초 대기 후 jina 폴백 시도")
-        time.sleep(30)
+        log("    url_context 429 — jina 폴백으로 바로 전환")
 
     try:
         reader_req = urllib.request.Request(f"https://r.jina.ai/{article_url}", headers=UA)
