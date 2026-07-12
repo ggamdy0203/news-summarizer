@@ -217,6 +217,7 @@ def select_articles(items, category, count):
 
 
 def summarize(article_url):
+    url_context_hit_429 = False
     try:
         prompt = (
             f"다음 링크에 접속해서 글 내용을 읽고 핵심만 한국어로 요약해줘. {SUMMARY_FORMAT} "
@@ -225,8 +226,18 @@ def summarize(article_url):
         text, status = call_gemini(prompt, use_url_context=True, model=GEMINI_LITE_MODEL)
         if status == "URL_RETRIEVAL_STATUS_SUCCESS" and text:
             return text
+    except RuntimeError as e:
+        log(f"    url_context 실패(쿼터): {e}")
+        url_context_hit_429 = True
     except Exception as e:
+        if "429" in str(e):
+            url_context_hit_429 = True
         log(f"    url_context 실패: {e}")
+
+    # url_context가 429로 실패했으면 잠시 대기 후 재시도
+    if url_context_hit_429:
+        log("    429 감지 — 30초 대기 후 jina 폴백 시도")
+        time.sleep(30)
 
     try:
         reader_req = urllib.request.Request(f"https://r.jina.ai/{article_url}", headers=UA)
@@ -291,7 +302,7 @@ def build_entry(slot):
                 summary = summarize(it["url"])
                 built_items.append({"title": it["title"], "url": it["url"], "summary": summary})
                 headline_candidates.append(it["title"])
-                time.sleep(4)  # flash-lite 무료 티어 분당 15회 제한 준수
+                time.sleep(8)  # flash-lite 무료 티어 분당 15회 제한 — 여유 있게 8초
             sections.append({"source": source_name, "items": built_items})
 
         categories_out.append({"category": cat_name, "sections": sections})
