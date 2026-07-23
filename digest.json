@@ -1,8 +1,8 @@
 {
   "entries": [
     {
-      "label": "오후 다이제스트 · 2026-07-22",
-      "createdAt": "2026-07-22T13:32:56.621690Z",
+      "label": "오전 다이제스트 · 2026-07-23",
+      "createdAt": "2026-07-23T00:07:02.583403Z",
       "categories": [
         {
           "category": "부동산",
@@ -10,6 +10,21 @@
             {
               "source": "한국경제",
               "items": [
+                {
+                  "title": "'경기 남부 대체 주거지 부각'…의왕 청약에 2486명 몰렸다",
+                  "url": "https://www.hankyung.com/article/2026072308376",
+                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
+                },
+                {
+                  "title": "오늘 부동산 정책 국민 대토론회…민심 톺아보니 [시장톡]",
+                  "url": "https://www.hankyung.com/article/2026072292406",
+                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
+                },
+                {
+                  "title": "서울 마지막 판자촌 '구룡마을' 통합심의 통과…백사·은마·잠실주공5단지도 탄력",
+                  "url": "https://www.hankyung.com/article/202607229020i",
+                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
+                },
                 {
                   "title": "\"거래 규제할수록 집값 폭등\"…부동산 토론회 불만 쏟아졌다",
                   "url": "https://www.hankyung.com/article/2026072201291",
@@ -29,21 +44,6 @@
                   "title": "토지보상 '세금 폭탄' 맞는다…내 땅 양도차익 줄여라",
                   "url": "https://www.hankyung.com/article/2026072285071",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
-                },
-                {
-                  "title": "경남 창원·거제 풍부한 인프라…실수요 잡을 대단지 쏟아진다",
-                  "url": "https://www.hankyung.com/article/2026072285121",
-                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
-                },
-                {
-                  "title": "'재개발 공사비 특약' 갖춰도…분담금 증액은 상시 리스크",
-                  "url": "https://www.hankyung.com/article/2026072285191",
-                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
-                },
-                {
-                  "title": "집값 상승률 봤더니…수도권은 구축, 지방은 새 아파트가 더 올랐다",
-                  "url": "https://www.hankyung.com/article/202607228878i",
-                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
             },
@@ -51,38 +51,38 @@
               "source": "네이버 뉴스",
               "items": [
                 {
-                  "title": "[포토] 부동산 종합대책 촉구하는 경실련",
-                  "url": "https://www.kmib.co.kr/article/view.asp?arcid=1784726244&code=11151700&cp=nv",
+                  "title": "\"이 정도는 돼야 상위 1%\" 서울, 지방 간 상위 아파트 격차 컸다",
+                  "url": "https://www.rcast.co.kr/news/articleView.html?idxno=31319",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "\"나도 2억7천만원 부자?\"...집값·주가 상승에 가계 순자산 9% 늘었다",
-                  "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202607220631&t=NN",
+                  "title": "반도체 클러스터 800조 투자에 광주 '들썩'…‘첨단3지구 제일풍경채’...",
+                  "url": "https://www.g-enews.com/view.php?ud=2026072308580169282aa6f4cdad_1",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "李대통령 근저당 매도 논란…신현영 \"분당 아파트 신속한 처분 위해 손...",
-                  "url": "https://www.natv.go.kr/natv/news/newsView.do?newsId=513811",
+                  "title": "인천시 정비사업 실태와 전망(3)-재몰포구",
+                  "url": "https://www.housingherald.co.kr/news/articleView.html?idxno=62297",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "이재명 \"청년들을 동료로 모십니다\"...공식 발표하고 모집 시작",
-                  "url": "https://www.wikitree.co.kr/articles/1147896",
+                  "title": "'스타벅스 사태가 변수'…이마트, 2Q 증익 기조 이어갈까",
+                  "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4426347",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "이 대통령, 내일 부동산 백분 토론...성난 민심 달랠까",
-                  "url": "https://www.ytn.co.kr/_ln/0102_202607222158293674",
+                  "title": "너도나도 ‘빚투’ 몰려들자…“이러다 집 살 돈 막힐라” 영끌족은 ‘...",
+                  "url": "https://www.sedaily.com/article/20070794?ref=naver",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[김종석의 리포트]이 대통령, 근저당 17억을 무이자로",
-                  "url": "https://www.ichannela.com/news/main/news_detailPage.do?publishId=000000541218",
+                  "title": "'의왕역 SK뷰' 1순위 청약 마감…384가구에 2486명 몰려",
+                  "url": "https://view.asiae.co.kr/article/2026072309054269860",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "저밀도로 지었더니 규제 대상… 나주, 혁신도시 '역차별' 개선 건의",
-                  "url": "https://www.newscj.com/news/articleView.html?idxno=3419157",
+                  "title": "SK증권 \"키움증권 목표주가 하향, 2분기 실적 개선에도 브로커리지 점유...",
+                  "url": "https://www.businesspost.co.kr/BP?command=article_view&num=442914",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
@@ -96,73 +96,73 @@
               "source": "네이버 뉴스",
               "items": [
                 {
-                  "title": "AI스페라, PCI DSS 최고 등급 4년 연속 유지… 글로벌 보안 신뢰도 높였...",
-                  "url": "https://www.venturesquare.net/1100401/",
+                  "title": "스틸리언, 캄보디아 KB프라삭은행에 '앱수트' 공급…동남아 금융시장 확...",
+                  "url": "https://www.dailysecu.com/news/articleView.html?idxno=207746",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "국민연금 위탁운용사 스타우드, 전주 사무소 개소",
-                  "url": "https://www.newspim.com/news/view/20260722001349",
+                  "title": "NH농협손보, 양자내성암호 기반 보안체계 도입",
+                  "url": "https://www.cstimes.com/news/articleView.html?idxno=714349",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[금융 HOT 뉴스] 신한은행, 한국산업의 서비스품질지수 은행산업 1위…...",
-                  "url": "http://www.bizwnews.com/news/articleView.html?idxno=141227",
+                  "title": "NH농협은행, 퇴직연금 경쟁력 인정..원리금비보장상품 수익률 3분기 연...",
+                  "url": "https://kpenews.com/View.aspx?No=4158890",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[금융] 농협은행 중소기업 보증 / 국민은행 AI 사외이사 / 하나금융 학교...",
-                  "url": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2242054",
+                  "title": "[코인뉴스] 비트코인에 불어온 美 규제 훈풍…남은 고비는",
+                  "url": "https://www.dailian.co.kr/news/view/1669896/?sc=Naver",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "'저속노화' 정희원, 주식 유튜버로 전향…\"하이닉스 분할 매수도\"",
-                  "url": "https://www.sportschosun.com/entertainment/2026-07-22/202607220100138900008847",
+                  "title": "\"18년 이어온 포용금융\"…하나금융, 다문화가정 자립·사회 통합 앞장",
+                  "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82922",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "\"나도 2억7천만원 부자?\"...집값·주가 상승에 가계 순자산 9% 늘었다",
-                  "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202607220631&t=NN",
+                  "title": "\"과도한 양극화 격차 완화하고 노노갈등 해소할 수 있는 합리적 대안 모...",
+                  "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=470741",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "LS증권, 한화투자증권과 약 558억원 공동 분담…CERCG 분쟁 8년만에 마침...",
-                  "url": "https://www.news2day.co.kr/article/20260722500372",
+                  "title": "1주일 앞, SK하이닉스 ADR·본주 전환…29% 프리미엄 업고 본주 매력 부...",
+                  "url": "https://www.ekn.kr/web/view.php?key=20260723027084900",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[증권 데일리] 증권사, AI·고수익·맞춤형 서비스로 WM 시장 공략",
-                  "url": "https://www.news2day.co.kr/article/20260722500405",
+                  "title": "지역농협 PF 공매 매물 1.4조 쌓였다…착공도 못하고 '휴지조각'",
+                  "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4426348",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "경남도, 대학(원)생 학자금대출 이자 지원 신청 접수",
-                  "url": "https://www.straightnews.co.kr/news/articleView.html?idxno=307483",
+                  "title": "부동산 민심 시험대 선 李대통령…오늘 공급·금융·세제 대토론회",
+                  "url": "https://daily.hankooki.com/news/articleView.html?idxno=1388461",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "신동빈 회장, 롯데쇼핑 주식 약 423억원 매각…“유동성 확보 목적”",
-                  "url": "https://www.mydaily.co.kr/page/view/2026072222205718113",
+                  "title": "홈플러스 파산 알린 세 번의 경고음",
+                  "url": "https://www.ilyosisa.co.kr/news/article.html?no=256950",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "롯데·한화·DL, 여수 NCC 통합 승인…석화 구조개편 속도",
-                  "url": "https://www.thelec.kr/news/articleView.html?idxno=59909",
+                  "title": "'네이버페이 연금' 오픈…흩어진 자산 AI로 진단",
+                  "url": "https://view.asiae.co.kr/article/2026072309074507234",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "'300억대 사기 의혹' 차가원 대표, 경찰 세 번째 구속영장 신청…수사 전...",
-                  "url": "https://www.cwn.kr/news/articleView.html?idxno=51008",
+                  "title": "거래세 낮추고 보유세 강화하고… 방법 알았던 文의 패착과 李 정부의 ...",
+                  "url": "https://www.thescoop.co.kr/news/articleView.html?idxno=310983",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "'여수 1호 프로젝트사업재편안' 산업통상부 최종 승인...석유화학 산업...",
-                  "url": "http://www.netongs.com/news/articleView.html?idxno=334221",
+                  "title": "[김대호 인물] 파미 콰디르(Fahmi Quadir) 뉴욕증시 월가의 암살자",
+                  "url": "https://www.g-enews.com/view.php?ud=202607211001212662906806b77b_1",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "해양환경공단, Sh수협은행과 주거래협약 체결 및 '도전! Safety 골든벨' 개...",
-                  "url": "https://www.cstimes.com/news/articleView.html?idxno=714297",
+                  "title": "퇴직연금 경쟁 '수익률'로…농협은행, 3분기 연속 5대 은행 1위",
+                  "url": "http://www.srtimes.kr/news/articleView.html?idxno=208112",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
@@ -176,38 +176,38 @@
               "source": "한국경제",
               "items": [
                 {
-                  "title": "\"지금이 진입 기회\"…이번주 삼전닉스 쓸어담은 외국인 [분석+]",
-                  "url": "https://www.hankyung.com/article/2026072294186",
+                  "title": "구글 클라우드 82% 증가, 자본지출 또 늘렸다 →반도체 호재? [김현석의 월스트리트나우]",
+                  "url": "https://www.hankyung.com/article/202607230537i",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[기고] 결제부터 팬덤까지…일상으로 들어오는 블록체인",
-                  "url": "https://www.hankyung.com/article/2026072200386",
+                  "title": "\"삼성전자, 구글 메모리 점유율 1위…하반기 영업익 234조\"-KB",
+                  "url": "https://www.hankyung.com/article/2026072307026",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "李, '레버리지 보완' 주문했는데…김용범 \"추가 대책 말씀 아냐\"",
-                  "url": "https://www.hankyung.com/article/2026072201816",
+                  "title": "\"SK바이오팜, 엑스코프리 처방량 증가 이어질 것…목표가 13만원\"-iM",
+                  "url": "https://www.hankyung.com/article/2026072306846",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "김민국 VIP운용 대표 \"대주주 건강 이상설에 주가 상승, 제도로 끝내야\"",
-                  "url": "https://www.hankyung.com/article/2026072294586",
+                  "title": "올해 50% 뛰었다…증권가 '16만원도 가능' 외친 이 종목",
+                  "url": "https://www.hankyung.com/article/202607220237i",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "\"릴리 인수 호재 끝?\"…녹십자, 2분기 '어닝 쇼크' 전망에 목표가 줄하향",
-                  "url": "https://www.hankyung.com/article/202607229916i",
+                  "title": "\"체급이 달라졌다\"…가온전선, 버스덕트 기대에 15% 급등",
+                  "url": "https://www.hankyung.com/article/202607229736i",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "대형 병원 기기·약품 납품사 80여곳 M&A 시장에 나온다",
-                  "url": "https://www.hankyung.com/article/2026072200391",
+                  "title": "\"증시 수급 꼬여있어…주가 오를때마다 차익실현 매물 쏟아질 것\"",
+                  "url": "https://www.hankyung.com/article/202607230455i",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "엇갈린 반도체 투심…外人 쓸어담고, 개인은 '본전 매도'",
-                  "url": "https://www.hankyung.com/article/2026072200041",
+                  "title": "\"삼성물산, 원전 사업 확대·할인율 축소 기대…목표가↑\"-KB",
+                  "url": "https://www.hankyung.com/article/2026072306446",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
@@ -216,38 +216,38 @@
               "source": "네이버 뉴스",
               "items": [
                 {
-                  "title": "성폭행 유죄 뒤 21년 도피…LA 바이오기업 임원으로 버젓이 근무",
-                  "url": "https://www.radiokorea.com/news/article.php?uid=499876",
+                  "title": "“영원무역, 고성장에도 아쉬운 주가…목표가↑”-신한",
+                  "url": "https://www.itooza.com/common/iview.php?no=2026072309132042747",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "'저속노화' 정희원, 주식 유튜버로 전향…\"하이닉스 분할 매수도\"",
-                  "url": "https://www.sportschosun.com/entertainment/2026-07-22/202607220100138900008847",
+                  "title": "코스피, 반도체 투심회복에 상승 출발…外人 매수에 7천선 터치(종합)",
+                  "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4426352",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "\"나도 2억7천만원 부자?\"...집값·주가 상승에 가계 순자산 9% 늘었다",
-                  "url": "http://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202607220631&t=NN",
+                  "title": "코스피, 상승출발…반도체주 일제히 반등",
+                  "url": "https://www.hankyung.com/article/2026072309336",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[증권 데일리] 증권사, AI·고수익·맞춤형 서비스로 WM 시장 공략",
-                  "url": "https://www.news2day.co.kr/article/20260722500405",
+                  "title": "코스피 상승 출발…7000선 회복 가능할까",
+                  "url": "https://www.wikitree.co.kr/articles/1147939",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "LS증권, 한화투자증권과 약 558억원 공동 분담…CERCG 분쟁 8년만에 마침...",
-                  "url": "https://www.news2day.co.kr/article/20260722500372",
+                  "title": "공모펀드로 사모펀드 투자…삼성증권 상품 라인업 확대",
+                  "url": "http://www.srtimes.kr/news/articleView.html?idxno=208113",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "美 재무장관, 클래러티법 표결 임박했다고 밝혀",
-                  "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=686169",
+                  "title": "\"소액으로 만나는 사모펀드\"…삼성증권, 사모재간접 공모펀드 선봬",
+                  "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82923",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "한국거래소, 에이치엘지노믹스 코스닥 신규상장 승인",
-                  "url": "https://www.newspim.com/news/view/20260722001344",
+                  "title": "중동 리스크·유가 급등 속 반도체 업황 기대감에… 코스피, 상승 출발",
+                  "url": "https://biz.chosun.com/stock/market_trend/2026/07/23/LALMSYDF2NEG5NQKU5WHB36Q2A/?utm_source=naver&utm_medium=original&utm_campaign=biz",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
@@ -261,73 +261,73 @@
               "source": "네이버 뉴스",
               "items": [
                 {
-                  "title": "부산항, 스타트업 혁신기술 시험무대 넓힌다…부두 운영사와 현장 연결",
-                  "url": "https://www.wikitree.co.kr/articles/1147899",
+                  "title": "에코프로, 인니 BNSI 제련소 핵심 설비 반입…내년 2분기 가동",
+                  "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03276726645517472",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "“눈으로 파괴력 확인”…우크라 드론, 미군 무기로 정식 도입",
-                  "url": "https://www.mk.co.kr/article/12104888",
+                  "title": "KCC·CJ제일제당, 색채 안전체계 구축… 색깔로 위험구역 구분한다",
+                  "url": "https://biz.chosun.com/real_estate/real_estate_general/2026/07/23/GHL7ZJ634ZB27IX4XQ6LDF35SQ/?utm_source=naver&utm_medium=original&utm_campaign=biz",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "李대통령·마크롱, 영상콘텐츠 첫 국제 정상회의 공동 주재",
-                  "url": "https://www.yna.co.kr/view/AKR20260722182200081?input=1195m",
+                  "title": "FC-BGA 경쟁력 앞세운 대덕전자, AI 반도체 시장 공략 박차",
+                  "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=470760",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[패트롤] 구리시-남양주시-양평군-포천시-하남시",
-                  "url": "https://www.ekn.kr/web/view.php?key=20260722023495105",
+                  "title": "정희성 경남도의원, \"경남도 물류창고 화재 안전지대 아니다\" 긴급 안전...",
+                  "url": "http://www.breaknews.com/1223702",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "SK하이닉스, 청주 P&T7 건설 투자 확대···AI 메모리 증설 속도",
-                  "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2451470",
+                  "title": "간밤 활기 띤 뉴욕증시…반도체 기판주 장초반 '쑥'",
+                  "url": "https://www.mt.co.kr/stock/2026/07/23/2026072309145333410",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "AI스페라, PCI DSS 최고 등급 4년 연속 유지… 글로벌 보안 신뢰도 높였...",
-                  "url": "https://www.venturesquare.net/1100401/",
+                  "title": "전남대병원 노사, 밤샘 협상 끝 잠정 합의…총파업 철회",
+                  "url": "https://www.news1.kr/local/gwangju-jeonnam/6236226",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "국민연금 위탁운용사 스타우드, 전주 사무소 개소",
-                  "url": "https://www.newspim.com/news/view/20260722001349",
+                  "title": "로봇인 듯, 사람인 듯…물건 잡고 느끼고 다 되는 AI 로봇 손",
+                  "url": "https://www.etnews.com/20260722000330",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[금융 HOT 뉴스] 신한은행, 한국산업의 서비스품질지수 은행산업 1위…...",
-                  "url": "http://www.bizwnews.com/news/articleView.html?idxno=141227",
+                  "title": "국민의힘 \" '뒤늦은 원칙론'…노동쟁의 혼란 책임 인정하고 실효적 해법...",
+                  "url": "http://www.breaknews.com/1223695",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "안전보건공단 서울남부지사, 동작구시설관리공단과 안전보건교육·폭염...",
-                  "url": "http://www.beyondpost.co.kr/view.php?ud=202607222219051607be44c0aacd_30",
+                  "title": "민경선 고양시장, 공업물량 확보·신청사 조기추진 협조 요청…도청·도...",
+                  "url": "https://www.joongangenews.com/news/articleView.html?idxno=534677",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "석유공사, ‘2026 재난관리 우수기관’ 선정…안전·재난관리 선도",
-                  "url": "https://www.busan.com/view/busan/view.php?code=2026072220555962777",
+                  "title": "물리 법칙 읽는 에이전틱 AI…KAIST, ICML 국제 챌린지 정상",
+                  "url": "https://www.ccdailynews.com/news/articleView.html?idxno=2429717",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[금융] 농협은행 중소기업 보증 / 국민은행 AI 사외이사 / 하나금융 학교...",
-                  "url": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2242054",
+                  "title": "[기자수첩] 기업보다 먼저 뛴 행정…아산시가 보여준 투자 도시의 새로...",
+                  "url": "https://weekly.hankooki.com/news/articleView.html?idxno=7175461",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "KB국민은행, 'AI 전문가' 정윤경 성균관대 교수 사외이사 후보 추천",
-                  "url": "https://www.econovill.com/news/articleView.html?idxno=745864",
+                  "title": "LG전자, 베트남서 기능성 소재 생산라인 가동…B2B 공급 확대",
+                  "url": "https://www.fetv.co.kr/news/articleView.html?idxno=306963",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "당정 \"3대 메가프로젝트, 지방주도성장 성공의 핵심 열쇠\"",
-                  "url": "https://biz.sbs.co.kr/article_hub/20000324039?division=NAVER",
+                  "title": "[기업 이모저모] 딜링룸 겨냥해 52인치 선보인 LG디스플레이",
+                  "url": "https://news.einfomax.co.kr/news/articleView.html?idxno=4426353",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "이 대통령, 美·남미 7박 11일 출장 큰 그림",
-                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105329",
+                  "title": "“지역 마지막 민간분양 아파트”… ‘첨단3지구 A6블록 제일풍경채’ ...",
+                  "url": "https://www.mk.co.kr/article/12105103",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
@@ -341,38 +341,38 @@
               "source": "한국경제",
               "items": [
                 {
-                  "title": "[속보] 트럼프 \"이란, 호르무즈 상선 공격땐 교량 또는 발전소 폭격\"",
-                  "url": "https://www.hankyung.com/article/2026072203827",
+                  "title": "日 체조계 천재소녀 \"은퇴 후 유흥업소에서 경영 배워\"",
+                  "url": "https://www.hankyung.com/article/202607230831H",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "\"2달러 과자 훔칠 이유 없다\"…해고당한 3억 연봉자의 호소",
-                  "url": "https://www.hankyung.com/article/2026072203737",
+                  "title": "AMD, 앤트로픽에 최대 50억달러 투자…차세대 AI 칩 공급",
+                  "url": "https://www.hankyung.com/article/2026072307277",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "\"아저씨 맨다리 불쾌해\"…반바지 출근에 '발칵' 뒤집혔다",
-                  "url": "https://www.hankyung.com/article/2026072203037",
+                  "title": "'사랑의 불시착' 때문에…日 인기 아이돌 출신 배우 '불륜'",
+                  "url": "https://www.hankyung.com/article/202607230617H",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "57억 '잭팟' 터진 한국인 남성…베트남 복권 사상 최고액",
-                  "url": "https://www.hankyung.com/article/2026072202587",
+                  "title": "홍해 해역서 유조선 피격…후티 \"사우디 봉쇄 위반 선박 공격\"",
+                  "url": "https://www.hankyung.com/article/2026072306267",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "비만 치료제 양대 산맥 '위고비-마운자로' 소송전…광고 어쨌길래",
-                  "url": "https://www.hankyung.com/article/2026072202727",
+                  "title": "美 국무 \"호르무즈 해군 자산 기여, 韓 등 동맹국에 이익\"",
+                  "url": "https://www.hankyung.com/article/2026072305997",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "파울 타구에 급소 맞은 MLB 신인…'고환 파열'로 응급 수술",
-                  "url": "https://www.hankyung.com/article/2026072202317",
+                  "title": "\"美, 며칠 내 이란 '곡괭이산 공습' 통보\"…이스라엘 최고 대비태세",
+                  "url": "https://www.hankyung.com/article/2026072305347",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "폭염 끝난 줄 알았는데…유럽, 이번엔 12도 급락·폭우 온다",
-                  "url": "https://www.hankyung.com/article/2026072202337",
+                  "title": "'굳히기' 들어간 트럼프 관세체제…15% 상한선 지킬지가 관건 [이상은의 워싱턴나우]",
+                  "url": "https://www.hankyung.com/article/202607230520i",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
@@ -381,38 +381,38 @@
               "source": "네이버 뉴스",
               "items": [
                 {
-                  "title": "산업은행, 여수 석유화학 사업재편 금융지원 논의",
-                  "url": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2242057",
+                  "title": "광명 창업지원센터, 스타트업 4곳 정부 공모 선정…15억9000만원 확보",
+                  "url": "https://view.asiae.co.kr/article/2026072309202526909",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "한미일 \"견고한 대북억제 태세 유지\"…대만·남중국해도 논의(종합)",
-                  "url": "https://www.newsis.com/view/NISX20260722_0003719456",
+                  "title": "[경제 이슈] 현대경제연구원, 기준금리 인상·K-양극화가 경기 침체로 이...",
+                  "url": "http://www.sisacast.kr/news/articleView.html?idxno=97923",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "석유공사, ‘2026 재난관리 우수기관’ 선정…안전·재난관리 선도",
-                  "url": "https://www.busan.com/view/busan/view.php?code=2026072220555962777",
+                  "title": "亞 장초반..N225 & AXJO '상승', 코스피 & 韓 반도체 '급등'",
+                  "url": "http://www.choicenews.co.kr/news/articleView.html?idxno=168569",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "한미일 외교, 한반도 비핵화 재확인…남중국해 관련 中우회비판",
-                  "url": "https://biz.sbs.co.kr/article_hub/20000324038?division=NAVER",
-                  "summary": "요약 내용을 생성하지 못했습니다. (The read operation timed out)"
-                },
-                {
-                  "title": "[초과이윤 담론①] 김영훈이 말한 'AI시대 새 사회계약'",
-                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105295",
+                  "title": "이재용·정의선, '글로벌 AI 포럼' 자문위원 위촉…젠슨 황과 11월에 美...",
+                  "url": "https://www.newsis.com/view/NISX20260723_0003719782",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "이 대통령, 美·남미 7박 11일 출장 큰 그림",
-                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105329",
+                  "title": "[이란전쟁] 미·이, 호르무즈서 정면 충돌… 무력 봉쇄와 인프라 보복 맞...",
+                  "url": "http://www.newsroad.co.kr/news/articleView.html?idxno=61879",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 },
                 {
-                  "title": "[초과이윤 담론③] 재계, 진통 속 복잡한 셈법",
-                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105311",
+                  "title": "강원랜드와 주식시장 오버랩",
+                  "url": "https://www.ilyosisa.co.kr/news/article.html?no=256959",
+                  "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
+                },
+                {
+                  "title": "포르쉐, 수익성 악화에 일자리 5000개 추가 감원 예고",
+                  "url": "https://www.sentv.co.kr/article/view/sentv202607230021",
                   "summary": "요약 내용을 생성하지 못했습니다. ('cp949' codec can't encode character '\\ufffd' in position 8: illegal multibyte sequence)"
                 }
               ]
