@@ -1,6 +1,427 @@
 {
   "entries": [
     {
+      "label": "오후 12시 다이제스트 · 2026-08-19",
+      "createdAt": "2026-08-19T02:20:36.659344Z",
+      "categories": [
+        {
+          "category": "부동산",
+          "sections": [
+            {
+              "source": "한국경제",
+              "items": [
+                {
+                  "title": "서울 아파트값 1.27% '껑충'…올해 최고 상승폭 기록",
+                  "url": "https://www.hankyung.com/article/2026081880957",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "\"줍줍하면 10억 번다\"…'로또 아파트' 등장에 9만명 몰렸다 [주간이집]",
+                  "url": "https://www.hankyung.com/article/2026081863736",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "\"서울역·시청 코앞인데 전매 가능\"…충정로역 새 아파트 특공 흥행",
+                  "url": "https://www.hankyung.com/article/2026081986326",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "달아오르는 동탄·분당…'반도체 벨트'서 분양 봇물",
+                  "url": "https://www.hankyung.com/article/2026081877991",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "서울지역 '생애 첫 집' 매수, 7월 7547건…5년만에 최대",
+                  "url": "https://www.hankyung.com/article/2026081878011",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "조합 설립까지 '1년 → 4개월'로…서울시, 개선안 시행",
+                  "url": "https://www.hankyung.com/article/2026081987066",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "GTX-C·7호선 연장에 경기 북부 재평가…의정부·양주 주목",
+                  "url": "https://www.hankyung.com/article/202608163958i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            },
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "여야, 내일 본회의 앞두고 '부동산 법안' 평행선",
+                  "url": "https://www.obsnews.co.kr/news/articleView.html?idxno=1534497",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "지방 '브랜드 대단지' 곳곳에서 신고가 속출",
+                  "url": "https://www.rcast.co.kr/news/articleView.html?idxno=31477",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "박수영, 세제 개편안 전면 철회 촉구…\"청년 사다리 부수는 '세금 폭탄...",
+                  "url": "http://www.newstomato.com/ReadNews.aspx?no=1310669&inflow=N",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "하노이시 오피스시장, 공급 과잉에 A급 사무실 공실률 28% 웃돌아…임대...",
+                  "url": "https://www.insidevina.com/news/articleView.html?idxno=43849",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[아유경제_부동산] 서울시, 정비사업조합 설립 기간 1년→4개월로 단축",
+                  "url": "http://www.areyou.co.kr/news/articleView.html?idxno=94922",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[AI청약 리서치] '세종 우미 린 센터파크' 전 타입 마감…평균 17대 1",
+                  "url": "https://www.newspim.com/news/view/20260819000450",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[아유경제_부동산] 수색~광명 고속철도 전용선로 건설… 2036년 개통 목표",
+                  "url": "http://www.areyou.co.kr/news/articleView.html?idxno=94924",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "금융",
+          "sections": [
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "삼성증권 KODEX 머니마켓액티브, 연초 이후 파킹형 ETF 개인순매수 1위",
+                  "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065579111831527",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "\"롤러코스터 증시 지쳤다\" … 안전자산 찾아 달러·금으로 몰리는 개미...",
+                  "url": "https://biz.newdaily.co.kr/site/data/html/2026/08/19/2026081900134.html",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "토스, 저축은행 '햇살론 특례' 중개 수수료 인하",
+                  "url": "https://www.cstimes.com/news/articleView.html?idxno=717244",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[30조 목동 패권전-⑧IPARK현산] 한 우물만 판다…11단지에 전사 역량 쏟...",
+                  "url": "https://daily.hankooki.com/news/articleView.html?idxno=1396904",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[삐딱경제] 수익 주는데 빚만 쌓여...재무체력 떨어지는 건설기업들",
+                  "url": "http://www.nongaek.com/news/articleView.html?idxno=96455",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "SK쉴더스, ‘비인간 주체’ 보안 강화…AI 거버넌스·컨설팅 확대",
+                  "url": "https://www.mydaily.co.kr/page/view/2026081910413084075",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "금호건설, '왕숙 아테라' 계약 7일 만에 완판 [건설·분양오늘]",
+                  "url": "https://www.sisaon.co.kr/news/articleView.html?idxno=203611",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "업비트·빗썸 보유 코인 가치 '뚝' … 고객 보유량은 증가",
+                  "url": "https://www.safetimes.co.kr/news/articleView.html?idxno=244991",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "KB국민은행, 'KB국민인증서' 이용자 1800만명 돌파…공공·민간 이용처 ...",
+                  "url": "http://www.ftoday.co.kr/news/articleView.html?idxno=363813",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "카카오, LG유플러스·LG AI연구원 등 14개사와 '모두의 AI' 컨소시엄",
+                  "url": "https://www.cnbizm.com/news/articleView.html?idxno=311986",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[데스크의 창] 수입·외투기업 의존도 깊어지는 베트남",
+                  "url": "https://weeklytrade.co.kr/news/view.html?section=1&category=136&item=&no=101083",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "국산 NPU로 국산 AI 돌린다... KT 새 플랫폼 출시",
+                  "url": "https://www.hankookilbo.com/news/article/A2026081910300004575?did=NA",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "KT, 업스테이지·리벨리온·다음 등과 손잡고 정부 '모두의 AI' 공모 출사...",
+                  "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03332486645548960",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "일본 6월 기계수주 9.7%↑…기조판단 '회복 움직임' 유지",
+                  "url": "https://www.newsis.com/view/NISX20260819_0003754049",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "증권",
+          "sections": [
+            {
+              "source": "한국경제",
+              "items": [
+                {
+                  "title": "코스피 6% 급락에 사이드카…“7월 같은 폭락 가능성 낮다”",
+                  "url": "https://www.hankyung.com/article/202608198679i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "8월에만 30% 넘게 반등…스페이스X 쓸어담은 서학개미 [종목+]",
+                  "url": "https://www.hankyung.com/article/2026081988266",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "지수 주춤하자 개미들 울상…상위 1% 고수들은 '이걸' 샀다",
+                  "url": "https://www.hankyung.com/article/202608198610i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "상승분 다 반납한 中 상하이증시…“신경제섹터·고배당주 주목”",
+                  "url": "https://www.hankyung.com/article/202608187739i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "반도체 폭락 재발…단기 급등 따른 조정이냐, 9월(중간선거) 앞둔 하락이냐 [김현석의 월스트리트나우]",
+                  "url": "https://www.hankyung.com/article/202608198272i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "美 국채 금리급등 여파로 일제 하락…나스닥 1.3%↓ [뉴욕증시 브리핑]",
+                  "url": "https://www.hankyung.com/article/2026081983666",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "\"만들기 무섭게 팔려나간다\"…반도체만큼 잘 나가는 '이것' [분석+]",
+                  "url": "https://www.hankyung.com/article/2026081875356",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            },
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "100억달러 신용한도, 앤트로픽 IPO 전 추진",
+                  "url": "https://www.tokenpost.kr/news/cryptocurrency/393039",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "'AI 희망'이 악재로…'반년새 7배' 앤스로픽 매출 실망론",
+                  "url": "https://www.hankyung.com/article/202608198983i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "수익률 경쟁력 갖춰도 증권사로...보험사 퇴직연금 'ETF 제약'",
+                  "url": "https://www.ntoday.co.kr/news/articleView.html?idxno=128823",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[비트코인 지금]美 SEC, 가상자산 발행 규제 완화…최대 7500만달러 증권...",
+                  "url": "https://view.asiae.co.kr/article/2026081908570874500",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "“요며칠 조금 오르나 싶더니 또”…삼전닉스, 6~8%대 동반 급락",
+                  "url": "https://www.mk.co.kr/article/12130962",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[AI회사채 쇼크] 민간저축 쓸어담는 빅테크...자금쟁탈전",
+                  "url": "https://www.newspim.com/news/view/20260819000502",
+                  "summary": "요약 내용을 생성하지 못했습니다. (The read operation timed out)"
+                },
+                {
+                  "title": "'中휴머노이드 대표주자' 유니트리 상장 첫날 주가 400%대 급등",
+                  "url": "https://www.yna.co.kr/view/AKR20260819077400083?input=1195m",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "산업",
+          "sections": [
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "[메가이슈토픽] '이변은 없었다' 독파모 3강 압축…SKT·LG·업스테이지...",
+                  "url": "https://www.megaeconomy.co.kr/news/newsview.php?ncode=1065573834805804",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "푸른로보틱스 주가, 급등세... 무슨 회사길래?",
+                  "url": "https://www.ggilbo.com/news/articleView.html?idxno=1176183",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "베트남 유학생 취업·정주 잇는 K-TECH 다리",
+                  "url": "https://www.ccdailynews.com/news/articleView.html?idxno=2434935",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "지오스토리, AI·공간지능 융합 기술로 산업 혁신 선도",
+                  "url": "https://www.the-stock.kr/news/articleView.html?idxno=33185",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "\"모두의 AI 대격돌!\" 조별과제 참여한 조원들 면면 살펴보니",
+                  "url": "https://www.econovill.com/news/articleView.html?idxno=748360",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[더벨][연금사업자 경쟁력 분석] 발군의 신한증권, 미래에셋도 제압…은...",
+                  "url": "https://www.thebell.co.kr/free/content/ArticleView.asp?key=202608140019054130104481",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 403: Forbidden)"
+                },
+                {
+                  "title": "의료기관 ESG경영 혁신으로 보건의료 지속가능성 높인다",
+                  "url": "http://www.whosaeng.com/172947",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "'KHF 2026' 개막…지능형병원 등 집중조명",
+                  "url": "https://www.bosa.co.kr/news/articleView.html?idxno=3010421",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "연세대, 8주 실습으로 나만의 AI 신약개발 포트폴리 완성",
+                  "url": "https://www.kyosu.net/news/articleView.html?idxno=209044",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "금산군-경방신약, 흑삼 관절건강 기능성식품 개발 협약",
+                  "url": "https://www.ccdailynews.com/news/articleView.html?idxno=2434934",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "'첨단3지구 A6블록 제일풍경채' 21일 견본주택 개관…638가구 규모",
+                  "url": "http://www.lkp.news/news/articleView.html?idxno=83092",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "30년간 경영진단 역행한 한전...기후위기 알고도 화력발전 확대",
+                  "url": "https://www.newstree.kr/newsView/ntr202608190001",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[특별기고] SMR 조기 사업화가 AI 대전환 앞당긴다",
+                  "url": "https://biz.heraldcorp.com/article/10845235?ref=naver",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "“집 지을 땅 없는데 현 체제론 안돼” 서울시, 용도지역제 축소·폐지...",
+                  "url": "https://biz.heraldcorp.com/article/10845236?ref=naver",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "category": "글로벌경제",
+          "sections": [
+            {
+              "source": "한국경제",
+              "items": [
+                {
+                  "title": "中, 세계에 AI 데이터 무료 공개…'중국 가치관' 심는다",
+                  "url": "https://www.hankyung.com/article/202608198556i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "원전 10기급 'AI 심장' 짓는다…오픈AI·엔비디아, 오하이오에 초대형 베팅",
+                  "url": "https://www.hankyung.com/article/202608198852i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "\"이 단어 뜻 알아?\"…월가 애널리스트 시험하는 美은행 CEO",
+                  "url": "https://www.hankyung.com/article/202608198609i",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "AI 학습 위해 항공사 데이터 사들인 구글",
+                  "url": "https://www.hankyung.com/article/2026081881071",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "중국의 '치명적 무기' 된 희토류…美·日, 공급망 재편으로 반격",
+                  "url": "https://www.hankyung.com/article/2026081877681",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "美 \"휴전 연장 없다\"…유가 90달러 재돌파",
+                  "url": "https://www.hankyung.com/article/2026081879351",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "데이터센터 '보험 공백'…재난 땐 수십억달러 손실",
+                  "url": "https://www.hankyung.com/article/2026081879341",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            },
+            {
+              "source": "네이버 뉴스",
+              "items": [
+                {
+                  "title": "[중동 봉쇄 쇼크⑦] 이란에 뺨 맞고 한국에 화풀이...트럼프의 '셀프 고...",
+                  "url": "http://www.00news.co.kr/news/articleView.html?idxno=105957",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "AI 특허 8년 새 7배 급증…\"양적 성장서 분야별 맞춤 전략 전환해야\"",
+                  "url": "https://www.industrynews.co.kr/news/articleView.html?idxno=84643",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "LG엔솔, 美 랜싱 공장 가동…LFP·삼원계 동시 공략",
+                  "url": "https://magazine.hankyung.com/business/article/202608199355b",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[분석] \"한국 메모리 사줄 테니 中 칩·모델 쓰지 마\"···트럼프식 AI ...",
+                  "url": "https://www.womaneconomy.co.kr/news/articleView.html?idxno=257457",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "포스코, 창사 이래 첫 파업 갈림길…이상휘 의원 “파국보다 대화 선택...",
+                  "url": "https://www.pressian.com/pages/articles/2026081911320133777?utm_source=naver&utm_medium=search",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "삼성전자, 광주에 HVAC 생산라인 신설…2400억원 투자",
+                  "url": "https://sateconomy.co.kr/news/view/1065579930704921",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                },
+                {
+                  "title": "[재계 포커스] 방산·조선 두 날개 편 한화…김동관의 '글로벌 승부' 본...",
+                  "url": "https://www.polinews.co.kr/news/articleView.html?idxno=740602",
+                  "summary": "요약 내용을 생성하지 못했습니다. (HTTP Error 404: Not Found)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "label": "오전 7시 다이제스트 · 2026-08-19",
       "createdAt": "2026-08-18T22:24:27.480273Z",
       "categories": [
